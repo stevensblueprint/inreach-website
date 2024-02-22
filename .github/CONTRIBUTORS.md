@@ -1,0 +1,2 @@
+Contributors
+- Miguel Merlin
