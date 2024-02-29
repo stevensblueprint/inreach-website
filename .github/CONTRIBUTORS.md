@@ -4,4 +4,6 @@ Contributors
 - Mehmet Bertan Tarakcioglu
 - Lucas Ha
 - Ezri Zhu
+- Sahana Ali 
+- Bryan Chan
 
