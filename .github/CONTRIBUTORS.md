@@ -4,3 +4,4 @@ Contributors
 - Mehmet Bertan Tarakcioglu
 - Lucas Ha
 - Krish Malik
+- Bryan Chan
