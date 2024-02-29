@@ -3,3 +3,4 @@ Contributors
 - Nadil Ranatunga
 - Mehmet Bertan Tarakcioglu
 - Lucas Ha
+- Bryan Chan
