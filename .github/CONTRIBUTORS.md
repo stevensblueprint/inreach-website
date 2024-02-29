@@ -4,3 +4,7 @@ Contributors
 - Mehmet Bertan Tarakcioglu
 - Lucas Ha
 - Justin Ferber
+- Krish Malik
+- Ezri Zhu
+- Sahana Ali 
+- Bryan Chan
