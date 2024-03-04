@@ -1,0 +1,7 @@
+# safe to ignore these all the time
+node_modules
+.env
+.vscode/
+
+# ignore all .DS_Store files (mac specific)
+DS_Store
