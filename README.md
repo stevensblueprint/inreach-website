@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Getting Started
 
-## Getting Started
+If repo not cloned, run:
 
-First, run the development server:
+```bash
+git clone https://github.com/stevensblueprint/inreach-website.git
+```
+
+## Initialize the Server and Frontend
+
+### First, we initialize the backend
+
+1. Ensure you are in the correct directory:
+
+```bash
+cd keystone-server
+```
+
+2. Install all the dependencies
+
+```bash
+npm install
+```
+
+3. Run the keystone server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This should open the backend on port 3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Create a new terminal to start the frontend, then run
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Ensure you are in the correct directory (if you are doing this in the same terminal from the previous step then you'd need to run `cd ../frontend`):
 
-## Learn More
+```bash
+cd frontend
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install all the dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Run the frontend
 
-## Deploy on Vercel
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This should open the frontend on port 8000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing Changes
+
+### Create your branch
+
+Follow the conventions to name your branch, ex.
+
+```bash
+git checkout -b feature/name_of_feature
+```
+
+Add your changes, could be done using either one of the following (note: using `git add .` stages all changed files):
+
+```bash
+git add .
+- OR -
+git add {name_of_modified_file}
+```
+
+Commit your file changes
+
+```bash
+git commit -m "Commit message"
+```
+
+Push changes to repository
+
+```bash
+git push --set-upstream origin {branch_name}
+```
+
+Submit a pull request through GitHub. With an updated branch, going to the repository on github should prompt you with green 'Submit pull request' button at the top. Follow the steps and you're good!
