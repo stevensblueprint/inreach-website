@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Getting Started
 
-## Getting Started
-
-First, run the development server:
+If repo not cloned, run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/stevensblueprint/inreach-website.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Initialize the Server and Frontend
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### First, we initialize the backend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+cd keystone-server 
+npm run dev
+```
 
-## Learn More
+This should open the backend on port 3000
 
-To learn more about Next.js, take a look at the following resources:
+### Create a new terminal to start the frontend, then run
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cd frontend
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This should open the frontend on port 8000
 
-## Deploy on Vercel
+## Contributing Changes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Create your branch
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Follow the conventions to name your branch, ex.
+
+```bash
+git checkout -b feature/name_of_feature
+```
+
+Add your changes, could be done using either one of the following:
+
+```bash
+git add .
+- OR -
+git add {name_of_modified_file}
+```
+
+Commit your file changes
+
+```bash
+git commit -m "Commit message"
+```
+
+Push changes to repository
+
+```bash
+git push --set-upstream origin {branch_name}
+```
+
+Submit a pull request through GitHub
