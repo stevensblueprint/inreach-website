@@ -18,7 +18,8 @@ console.log('pageParams',params)
 
   return <BlogPage {...tinaData}/>
 }
-const getTinaPost = async (params:PageParams) => {
+const getTinaPost = async (params: PageParams) => {
+	console.log('gitTinaPost paramss',params)
   let data = {}
   let query = {}
 	let variables = { relativePath: `${params.filename}.md` }
@@ -48,4 +49,4 @@ const getTinaPost = async (params:PageParams) => {
 // 	}))
 // }
 export default Page
-export const dynamic = 'force-dynamic'
+
