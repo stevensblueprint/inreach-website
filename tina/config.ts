@@ -6,21 +6,16 @@ const branch = process.env.GITHUB_BRANCH ||
     process.env.VERCEL_GIT_COMMIT_REF ||
     process.env.HEAD ||
     "main";
-    const getBaseUrl = () => {
-	if (typeof window !== 'undefined') return '' // browser should use relative url
-	// if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}` // SSR should use vercel url
-	return `http://localhost:${process.env.PORT ?? 3000}` // dev SSR should use localhost
-}
+// const getBaseUrl = () => {
+// 	if (typeof window !== 'undefined') return '' // browser should use relative url
+// 	// if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}` // SSR should use vercel url
+// 	return `http://localhost:${process.env.PORT ?? 3000}` // dev SSR should use localhost
+// }
 export default defineConfig({
-    contentApiUrlOverride: `${getBaseUrl()}/api/tina/gql`,
+    contentApiUrlOverride: `/api/tina/gql`,
     authProvider: isLocal ? new LocalAuthProvider() : new
-    // Your hosting provider likely exposes this as an environment variable
     UsernamePasswordAuthJSProvider(),
     branch,
-    // Get this from tina.io
-    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-    // Get this from tina.io
-    token: process.env.TINA_TOKEN,
     build: {
         outputFolder: "admin",
         publicFolder: "public",
@@ -29,6 +24,7 @@ export default defineConfig({
         tina: {
             mediaRoot: "",
             publicFolder: "public",
+            static: true
         },
     },
     // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/

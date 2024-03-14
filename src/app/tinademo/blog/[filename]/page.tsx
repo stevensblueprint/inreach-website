@@ -2,10 +2,9 @@
 // @ts-nocheck
 // This is a demo file once you have tina setup feel free to delete this file
 
-import { useTina } from 'tinacms/dist/react'
+
 import client from '~tina/__generated__/client'
 import { BlogPage } from './components.client'
-type TinaData = Awaited<ReturnType<typeof getTinaPost>>
 
 interface PageParams {
 	params: {
@@ -40,11 +39,11 @@ const getTinaPost = async (params:PageParams) => {
   }
 }
 
-export const generateStaticParams = async () => {
-	const postsListData = await client.queries.postConnection()
-	return postsListData.data.postConnection.edges.map((post) => ({
-		filename: post.node._sys.filename,
-	}))
-}
+// export const generateStaticParams = async () => {
+// 	const postsListData = await client.queries.postConnection()
+// 	return postsListData.data.postConnection.edges.map((post) => ({
+// 		filename: post.node._sys.filename,
+// 	}))
+// }
 export default Page
-
+export const dynamic = 'force-dynamic'
