@@ -1,4 +1,4 @@
-import { TinaNodeBackend, LocalBackendAuthProvider } from "@tinacms/datalayer";
+import { TinaNodeBackend, LocalBackendAuthProvider} from "@tinacms/datalayer";
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from "tinacms-authjs";
 
 import databaseClient from "~tina/__generated__/databaseClient";
@@ -13,6 +13,7 @@ const tina = TinaNodeBackend({
         authOptions: TinaAuthJSOptions({
           databaseClient: databaseClient,
           secret: process.env.NEXTAUTH_SECRET as string,
+          debug: process.env.DEBUG === 'true' || false
         }),
       }),
   databaseClient,

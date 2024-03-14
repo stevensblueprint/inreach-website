@@ -13,8 +13,9 @@ const getBaseUrl = () => {
 }
 export default defineConfig({
     contentApiUrlOverride: `${getBaseUrl()}/api/tina/gql`,
-    authProvider: isLocal ? new LocalAuthProvider() : new
-    UsernamePasswordAuthJSProvider(),
+    authProvider: isLocal
+        ? new LocalAuthProvider()
+        : new UsernamePasswordAuthJSProvider(),
     branch,
     build: {
         outputFolder: "admin",
