@@ -21,6 +21,8 @@ export default defineConfig({
         outputFolder: "admin",
         publicFolder: "public",
     },
+    clientId: '123',
+    token: '456',
     media: {
         tina: {
             mediaRoot: "",
