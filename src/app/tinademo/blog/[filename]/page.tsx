@@ -13,6 +13,7 @@ interface PageParams {
 }
 
 const Page = async ({ params }: PageParams) => {
+console.log('pageParams',params)
 	const tinaData = await getTinaPost(params)
 
   return <BlogPage {...tinaData}/>
@@ -22,7 +23,8 @@ const getTinaPost = async (params:PageParams) => {
   let query = {}
 	let variables = { relativePath: `${params.filename}.md` }
 	try {
-    const res = await client.queries.post(variables)
+		const res = await client.queries.post(variables)
+		console.log('tina response',res)
     query = res.query
     data = res.data
     variables = res.variables
