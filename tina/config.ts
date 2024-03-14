@@ -3,21 +3,15 @@ import { defineConfig, LocalAuthProvider } from 'tinacms'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main'
-const getBaseUrl = () => {
-	if (typeof window !== 'undefined') return '' // browser should use relative url
-	if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}` // SSR should use vercel url
-	return `http://localhost:${process.env.PORT ?? 3000}` // dev SSR should use localhost
-}
+
 export default defineConfig({
-	contentApiUrlOverride: '/api/tina/gql',
+	contentApiUrlOverride: `/api/tina/gql`,
 	authProvider: isLocal ? new LocalAuthProvider() : new UsernamePasswordAuthJSProvider(),
 	branch,
 	build: {
 		outputFolder: 'admin',
 		publicFolder: 'public',
 	},
-	clientId: '123',
-	token: '456',
 	media: {
 		tina: {
 			mediaRoot: '',

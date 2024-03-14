@@ -23,7 +23,7 @@ export const BlogPage = ({ props }: TinaData) => {
 		variables: props.variables,
 		data: props.data,
 	})
-	console.log('page props & tina data', props, data)
+
 	return (
 		<>
 			<div>

@@ -20,7 +20,6 @@ const tina = TinaNodeBackend({
 })
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
-	console.log('api req', req)
 	// Modify the request here if you need to
 	return tina(req, res)
 }
