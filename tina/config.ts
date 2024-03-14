@@ -12,7 +12,7 @@ const branch = process.env.GITHUB_BRANCH ||
 	return `http://localhost:${process.env.PORT ?? 8000}` // dev SSR should use localhost
 }
 export default defineConfig({
-    contentApiUrlOverride: isLocal ? `${getBaseUrl()}/api/tina/gql` : '/api/tina/gql',
+    contentApiUrlOverride: `${getBaseUrl()}/api/tina/gql`,
     authProvider: isLocal ? new LocalAuthProvider() : new
     // Your hosting provider likely exposes this as an environment variable
     UsernamePasswordAuthJSProvider(),
