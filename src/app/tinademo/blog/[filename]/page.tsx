@@ -26,8 +26,8 @@ const getTinaPost = async (params:PageParams) => {
     query = res.query
     data = res.data
     variables = res.variables
-  } catch {
-    // swallow errors related to document creation
+	} catch (err) {
+		console.error(err)
   }
 
   return {
