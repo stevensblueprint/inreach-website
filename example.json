@@ -1,24 +1,24 @@
 {
-  "examples": [
-    {
-      "id": "1",
-      "name": "John Doe",
-      "message": "Hello, World!"
-    },
-    {
-      "id": "2",
-      "name": "Jane Doe",
-      "message": "Welcome to the page!"
-    },
-    {
-      "id": "3",
-      "name": "Alice Smith",
-      "message": "Nice to meet you!"
-    },
-    {
-      "id": "4",
-      "name": "Bob Johnson",
-      "message": "Greetings from Bob!"
-    }
-  ]
+	"examples": [
+		{
+			"id": "1",
+			"name": "John Doe",
+			"message": "Hello, World!"
+		},
+		{
+			"id": "2",
+			"name": "Jane Doe",
+			"message": "Welcome to the page!"
+		},
+		{
+			"id": "3",
+			"name": "Alice Smith",
+			"message": "Nice to meet you!"
+		},
+		{
+			"id": "4",
+			"name": "Bob Johnson",
+			"message": "Greetings from Bob!"
+		}
+	]
 }
