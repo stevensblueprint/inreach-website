@@ -1,4 +1,5 @@
 Contributors
+
 - Miguel Merlin
 - Nadil Ranatunga
 - Mehmet Bertan Tarakcioglu
@@ -6,5 +7,5 @@ Contributors
 - Justin Ferber
 - Krish Malik
 - Ezri Zhu
-- Sahana Ali 
+- Sahana Ali
 - Bryan Chan

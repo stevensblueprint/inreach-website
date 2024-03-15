@@ -1,0 +1,41 @@
+version: '3.9'
+name: inreach-website
+services:
+  redis:
+    image: redis/redis-stack-server:6.2.6-v6
+    pull_policy: always
+    restart: unless-stopped
+    container_name: InReach-website-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - cache:/data
+  # Redis serverless proxy (to emulate @vercel/kv)
+  redis-serverless-http:
+    container_name: InReach-website-redis-serverless-proxy
+    image: hiett/serverless-redis-http:latest
+    pull_policy: always
+    restart: unless-stopped
+    depends_on:
+      - redis
+    ports:
+      - '8079:80'
+    environment:
+      SRH_MODE: env
+      SRH_TOKEN: i_am_the_docker_api_token
+      SRH_CONNECTION_STRING: 'redis://redis:6379'
+  redis-insight:
+    container_name: InReach-website-RedisInsight
+    image: redislabs/redisinsight:latest
+    pull_policy: always
+    restart: unless-stopped
+    depends_on:
+      - redis
+    ports:
+      - 8001:5540
+    volumes:
+      - redis_insight:/db
+volumes:
+  cache:
+    driver: local
+  redis_insight: {}
