@@ -2,7 +2,7 @@
 import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown, type TinaMarkdownContent } from 'tinacms/dist/rich-text'
 
-type TinaData = {
+export type TinaData = {
 	props: {
 		variables: {
 			relativePath: string

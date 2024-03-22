@@ -1,5 +1,6 @@
 import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-authjs/dist/tinacms'
 import { defineConfig, LocalAuthProvider } from 'tinacms'
+import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main'
@@ -47,6 +48,37 @@ export default defineConfig({
 					router: ({ document }) => `/tinademo/blog/${document._sys.filename}`,
 				},
 			},
+      {
+        name: 'page',
+        label: 'Pages',
+        path: 'content/pages',
+        format: "mdx",
+        fields: [
+          {
+            type: 'string',
+            label: 'Title',
+            name: 'title',
+            description:
+              'The title of the page. This is used to display the title in the CMS',
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "object",
+            list: true,
+            name: "blocks",
+            label: "Sections",
+            templates: [
+              //@ts-ignore
+              takeActionBlockTemplate,
+            ]
+          }
+        ],
+        ui: {
+          // This is an DEMO router. You can remove this to fit your site
+          router: ({ document }) => `/${document._sys.filename}`,
+        },
+      }
 		],
 	},
 })
