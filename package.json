@@ -11,8 +11,10 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"@iconify/react": "^4.1.1",
 		"@mantine/core": "^7.7.0",
 		"@mantine/hooks": "^7.7.0",
+		"@mantine/utils": "^6.0.21",
 		"@tinacms/datalayer": "^1.2.33",
 		"@tinacms/toolkit": "^1.7.13",
 		"next": "^14.1.4",
