@@ -90,7 +90,7 @@ export const EmployeeCards = ({employee}) => {
                     social.link && social.platform &&
                     <Link href={`${social.link}`} key={social.platform + i + employee.fullName} target="_blank">
                       {social.iconName &&
-                        <Icon icon={social.iconName} className="hover:scale-110 transition-all"/>
+                        <Icon icon={social.iconName} className="hover:scale-110 transition-all" observer="false" />
                       }
                     </Link>
                   )
