@@ -24,6 +24,7 @@
 		"upstash-redis-level": "^1.1.1"
 	},
 	"devDependencies": {
+		"@iconify-icon/react": "^2.0.1",
 		"@tinacms/cli": "^1.5.42",
 		"@types/node": "^20.11.27",
 		"@types/react": "^18.2.66",
