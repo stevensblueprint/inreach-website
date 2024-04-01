@@ -83,14 +83,14 @@ export const EmployeeCards = ({employee}) => {
             {employee.description && employee.description}
           </p>
           {employee.socials && 
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-3 flex-wrap">
               {
                 employee.socials.map((social, i) => {
                   return (
                     social.link && social.platform &&
                     <Link href={`${social.link}`} key={social.platform + i + employee.fullName} target="_blank">
                       {social.iconName &&
-                        <Icon icon={social.iconName} className="hover:scale-110 transition-all" observer="false" />
+                        <Icon icon={social.iconName} className="hover:scale-110 transition-all text-2xl" observer="false" />
                       }
                     </Link>
                   )
