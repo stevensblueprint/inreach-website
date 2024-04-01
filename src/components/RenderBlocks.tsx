@@ -10,13 +10,13 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
           switch (block?.__typename) {
             case 'PageBlocksActions':
               return (
-                <div key={i + block.__typename}>
+                <div key={i + block.__typename} className="w-full">
                   <TakeActionContainer data={block} />
                 </div>
               )
             case 'PageBlocksTeamGallery':
               return (
-                <div key={i + block.__typename}>
+                <div key={i + block.__typename} className="w-full">
                   <TeamGalleryContainer data={block} />
                 </div>
               )
