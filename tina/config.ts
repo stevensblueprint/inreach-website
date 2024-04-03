@@ -1,6 +1,7 @@
 import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-authjs/dist/tinacms'
 import { defineConfig, LocalAuthProvider } from 'tinacms'
 import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
+import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main'
@@ -71,6 +72,8 @@ export default defineConfig({
             templates: [
               //@ts-ignore
               takeActionBlockTemplate,
+              //@ts-ignore
+              teamGalleryTemplate,
             ]
           }
         ],
