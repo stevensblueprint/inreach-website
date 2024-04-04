@@ -9,3 +9,4 @@ Contributors
 - Ezri Zhu
 - Sahana Ali
 - Bryan Chan
+- Ananya Shrivastava
