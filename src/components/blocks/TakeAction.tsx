@@ -25,42 +25,35 @@ const components = {
 }
 
 export const TakeAction = ({ data, display }: { data: PageBlocksActionsItems; display: string }) => {
-	return (
-    display === 'flex' ?
-      <div className='md:max-w-[33%] md:min-w-[33%] p-1 flex flex-grow w-full'>
-        <div
-          className='w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'
-        >
-          {data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold'>{data.title}</h1>}
-          {data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
-          <TinaMarkdown components={components} content={data?.body} />
-        </div>
-      </div>
-    :
-    <div
-          className='w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'
-        >
-          {data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold'>{data.title}</h1>}
-          {data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
-          <TinaMarkdown components={components} content={data?.body} />
-        </div>
+	return display === 'flex' ? (
+		<div className='md:max-w-[33.333333%] md:w-1/3 p-1 flex flex-grow w-full'>
+			<div className='w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'>
+				{data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold'>{data.title}</h1>}
+				{data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
+				<TinaMarkdown components={components} content={data?.body} />
+			</div>
+		</div>
+	) : (
+		<div className='w-full p-1'>
+			<div className='w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'>
+				{data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold'>{data.title}</h1>}
+				{data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
+				<TinaMarkdown components={components} content={data?.body} />
+			</div>
+		</div>
 	)
-  
 }
 
 export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 	return (
 		<div
 			className={
-				data.display === 'grid'
-					? 'grid md:grid-cols-3 grid-cols-1 gap-2'
-					: 'flex w-full flex-wrap justify-center'
+				data.display === 'grid' ? 'grid md:grid-cols-3 grid-cols-1' : 'flex w-full flex-wrap justify-center'
 			}
 		>
 			{data.items &&
 				data.items.map((block: PageBlocksActionsItems | null, i: number) => {
-          if (block)
-					  return <TakeAction data={block} key={i} display={data.display as string} />
+					if (block) return <TakeAction data={block} key={i} display={data.display as string} />
 				})}
 		</div>
 	)
@@ -96,29 +89,29 @@ export const takeActionBlockTemplate = {
 						label: item?.title,
 					}
 				},
-        defaultItem: {
-          title: 'Action Title',
-          text: 'Action Text',
-          body: {
-            type: 'root',
-            children: [
-              {
-                type: "mdxJsxFlowElement",
-                name: "ActionButton",
-                children: [
-                  {
-                    type: "text",
-                    text: "",
-                  },
-                ],
-                props: {
-                  "actionText": "Default",
-                  "link": "/",
-                }
-              }
-            ]
-          }
-        }
+				defaultItem: {
+					title: 'Action Title',
+					text: 'Action Text',
+					body: {
+						type: 'root',
+						children: [
+							{
+								type: 'mdxJsxFlowElement',
+								name: 'ActionButton',
+								children: [
+									{
+										type: 'text',
+										text: '',
+									},
+								],
+								props: {
+									actionText: 'Default',
+									link: '/',
+								},
+							},
+						],
+					},
+				},
 			},
 			fields: [
 				{

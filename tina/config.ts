@@ -1,5 +1,5 @@
 import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-authjs/dist/tinacms'
-import { defineConfig, LocalAuthProvider } from 'tinacms'
+import { defineConfig, LocalAuthProvider, Template } from 'tinacms'
 import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
@@ -68,12 +68,7 @@ export default defineConfig({
 						list: true,
 						name: 'blocks',
 						label: 'Sections',
-						templates: [
-							//@ts-ignore
-							takeActionBlockTemplate,
-							//@ts-ignore
-							teamGalleryTemplate,
-						],
+						templates: [takeActionBlockTemplate as Template, teamGalleryTemplate as Template],
 					},
 				],
 				ui: {
