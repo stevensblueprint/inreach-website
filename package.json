@@ -7,9 +7,10 @@
 		"dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
 		"format": "prettier -w -l .",
 		"lint": "next lint",
+		"prepare": "husky",
 		"setup:users": "tinacms-next-auth setup",
 		"start": "next start",
-		"prepare": "husky"
+		"test": "echo No tests yet!"
 	},
 	"husky": {
 		"hooks": {
