@@ -1,5 +1,5 @@
 import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-authjs/dist/tinacms'
-import { defineConfig, LocalAuthProvider } from 'tinacms'
+import { defineConfig, LocalAuthProvider, Template } from 'tinacms'
 import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
@@ -49,39 +49,33 @@ export default defineConfig({
 					router: ({ document }) => `/tinademo/blog/${document._sys.filename}`,
 				},
 			},
-      {
-        name: 'page',
-        label: 'Pages',
-        path: 'content/pages',
-        format: "mdx",
-        fields: [
-          {
-            type: 'string',
-            label: 'Title',
-            name: 'title',
-            description:
-              'The title of the page. This is used to display the title in the CMS',
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "object",
-            list: true,
-            name: "blocks",
-            label: "Sections",
-            templates: [
-              //@ts-ignore
-              takeActionBlockTemplate,
-              //@ts-ignore
-              teamGalleryTemplate,
-            ]
-          }
-        ],
-        ui: {
-          // This is an DEMO router. You can remove this to fit your site
-          router: ({ document }) => `/${document._sys.filename}`,
-        },
-      }
+			{
+				name: 'page',
+				label: 'Pages',
+				path: 'content/pages',
+				format: 'mdx',
+				fields: [
+					{
+						type: 'string',
+						label: 'Title',
+						name: 'title',
+						description: 'The title of the page. This is used to display the title in the CMS',
+						isTitle: true,
+						required: true,
+					},
+					{
+						type: 'object',
+						list: true,
+						name: 'blocks',
+						label: 'Sections',
+						templates: [takeActionBlockTemplate as Template, teamGalleryTemplate as Template],
+					},
+				],
+				ui: {
+					// This is an DEMO router. You can remove this to fit your site
+					router: ({ document }) => `/${document._sys.filename}`,
+				},
+			},
 		],
 	},
 })

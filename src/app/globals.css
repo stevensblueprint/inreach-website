@@ -2,10 +2,10 @@
 @tailwind utilities;
 
 @layer tailwind {
-  @tailwind base;
+	@tailwind base;
 }
 
-@import "@mantine/core/styles.css";
+@import '@mantine/core/styles.css';
 
 :root {
 	--foreground-rgb: 0, 0, 0;
