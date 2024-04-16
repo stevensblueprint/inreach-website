@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { MantineProvider, createTheme, ColorSchemeScript } from '@mantine/core'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -20,9 +19,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-      <head>
-        <ColorSchemeScript/>
-      </head>
+			<head>
+				<ColorSchemeScript />
+			</head>
 			<body className={inter.className}>
 				<MantineProvider theme={theme}>{children}</MantineProvider>
 			</body>

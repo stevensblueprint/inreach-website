@@ -51,7 +51,10 @@ export const TeamGalleryContainer = ({ data }: { data: PageBlocksTeamGallery }) 
 						{data.roles.map((block, z) => {
 							if (block && block.roleName === selected) {
 								return (
-									<div key={block.roleName + 'Fragment' + z} className='prose prose-stone prose-headings:mb-2 prose-p:mb-2 w-full max-w-none'>
+									<div
+										key={block.roleName + 'Fragment' + z}
+										className='prose prose-stone prose-headings:mb-2 prose-p:mb-2 w-full max-w-none'
+									>
 										<h1 className='uppercase text-3xl font-bold'>{block.roleName}</h1>
 										<TinaMarkdown content={block.roleDescription} />
 									</div>
@@ -85,7 +88,13 @@ export const EmployeeCards = ({ employee }: { employee: PageBlocksTeamGalleryRol
 			{employee && (
 				<div className='flex flex-col items-center justify-start'>
 					{employee.fullName && employee.image && (
-						<Image src={employee.image} alt={employee.fullName + ' Image'} height={800} width={1120} className='m-0'/>
+						<Image
+							src={employee.image}
+							alt={employee.fullName + ' Image'}
+							height={800}
+							width={1120}
+							className='m-0'
+						/>
 					)}
 					<div className='p-2 flex flex-col w-full uppercase gap-1'>
 						<p className='font-bold md:text-lg tracking-wider'>
