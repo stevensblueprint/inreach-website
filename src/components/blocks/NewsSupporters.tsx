@@ -6,10 +6,10 @@ import { PageBlocksNewsSupporters, PageBlocksNewsSupportersCompanies } from '~ti
 
 export const NewsSupporters = ({data}: {data: PageBlocksNewsSupporters}) => {
   return (
-    <Container fluid>
+    <Container fluid className='max-w-7xl'>
       <Stack justify='center' align='center' gap={0}>
         {data.title && 
-          <div className='prose text-center dark:prose-invert prose-stone prose-headings:m-0 prose-p:m-0'>
+          <div className='prose text-center prose-stone prose-headings:m-0 prose-p:m-0'>
             <TinaMarkdown content={data.title}/>
           </div>
         }
