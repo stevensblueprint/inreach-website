@@ -71,10 +71,10 @@ export default defineConfig({
 						name: 'blocks',
 						label: 'Sections',
 						templates: [
-							takeActionBlockTemplate, 
-							teamGalleryTemplate, 
-							newsSupportersTemplate, 
-							carouselTemplate
+							takeActionBlockTemplate,
+							teamGalleryTemplate,
+							newsSupportersTemplate,
+							carouselTemplate,
 						],
 					},
 				],

@@ -1,7 +1,7 @@
 import type { Page } from '~tina/__generated__/types'
 import { TakeActionContainer } from './blocks/TakeAction'
 import { TeamGalleryContainer } from './blocks/TeamGallery'
-import {NewsSupporters} from './blocks/NewsSupporters'
+import { NewsSupporters } from './blocks/NewsSupporters'
 import { CarouselContainer } from './blocks/Carousel'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
@@ -22,12 +22,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 										<TeamGalleryContainer data={block} />
 									</div>
 								)
-              case 'PageBlocksNewsSupporters':
-                return (
-                  <div key={i + block.__typename} className='w-full'>
-                    <NewsSupporters data={block} />
-                  </div>
-                )
+							case 'PageBlocksNewsSupporters':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<NewsSupporters data={block} />
+									</div>
+								)
 							case 'PageBlocksCarousel':
 								return (
 									<div key={i + block.__typename} className='w-full'>

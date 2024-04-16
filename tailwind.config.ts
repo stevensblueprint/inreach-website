@@ -42,20 +42,18 @@ const config: Config = {
 					'50%': { transform: 'scale(1.25)' },
 				},
 				bounceImage: {
-          '0%, 100%': {transform: 'translateY(0)'}, 
-          '50%' : {transform: 'translateY(-6px)'},
-        }
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-6px)' },
+				},
 			},
 			animation: {
 				'fade-up': 'fadeUp 0.75s ease-out forwards',
 				'zoom-constant': 'zoomInOut 20s ease-in-out infinite',
-        bounceImage: 'bounceImage 1.5s ease-in-out infinite'
-      }
+				bounceImage: 'bounceImage 1.5s ease-in-out infinite',
+			},
 		},
 	},
 
-	plugins: [
-    require('@tailwindcss/typography'),
-  ],
+	plugins: [require('@tailwindcss/typography')],
 }
 export default config

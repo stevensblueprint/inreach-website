@@ -63,7 +63,9 @@ export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 	return (
 		<div
 			className={
-				data.display === 'grid' ? 'grid md:grid-cols-3 grid-cols-1' : 'flex w-full flex-wrap justify-center'
+				data.display === 'grid'
+					? 'grid md:grid-cols-3 grid-cols-1 p-4 max-w-7xl mx-auto'
+					: 'flex w-full flex-wrap justify-center p-4 max-w-7xl mx-auto'
 			}
 		>
 			{data.items &&
