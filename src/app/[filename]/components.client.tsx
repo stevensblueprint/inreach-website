@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Blocks } from "@/components/RenderBlocks"
-import { useTina } from "tinacms/dist/react"
+import { Blocks } from '@/components/RenderBlocks'
+import { useTina } from 'tinacms/dist/react'
 
 type TinaData = {
 	props: {
@@ -15,7 +15,7 @@ type TinaData = {
 			}
 		}
 		query: string
-  }
+	}
 }
 
 export const RenderedPage = ({ props }: TinaData) => {
@@ -25,11 +25,9 @@ export const RenderedPage = ({ props }: TinaData) => {
 		data: props.data,
 	})
 
-  return (
-    <div className="flex min-h-screen items-start justify-center gap-4 md:p-10 p-5 flex-col">
-      {data.page &&
-        <Blocks {...data.page} />
-      }
-    </div>
-  )
+	return (
+		<div className='flex min-h-screen items-start justify-center gap-4 md:p-10 p-5 flex-col'>
+			{data.page && <Blocks {...data.page} />}
+		</div>
+	)
 }

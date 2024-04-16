@@ -12,12 +12,6 @@
 		"start": "next start",
 		"test": "echo No tests yet!"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "pnpm run lint && pnpm run format:check && pnpm run format",
-			"pre-push": "pnpm run lint && pnpm run format:check && pnpm run format"
-		}
-	},
 	"dependencies": {
 		"@iconify-icon/react": "^2.0.1",
 		"@iconify/react": "^4.1.1",
