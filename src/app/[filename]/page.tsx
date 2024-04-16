@@ -11,7 +11,7 @@ type PageParams = {
 
 const Page = async ({ params }: PageParams) => {
 	const tinaData = await getTinaPage(params)
-  return <RenderedPage {...tinaData}/>
+	return <RenderedPage {...tinaData} />
 }
 const getTinaPage = async (params: PageParams) => {
 	let data = {}
