@@ -2,6 +2,7 @@ import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-auth
 import { defineConfig, LocalAuthProvider, Template } from 'tinacms'
 import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
+import { FooterContainer } from '../src/components/blocks/Footer'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main'
@@ -68,7 +69,7 @@ export default defineConfig({
 						list: true,
 						name: 'blocks',
 						label: 'Sections',
-						templates: [takeActionBlockTemplate as Template, teamGalleryTemplate as Template],
+						templates: [takeActionBlockTemplate as Template, teamGalleryTemplate as Template, FooterContainer as Template],
 					},
 				],
 				ui: {

@@ -1,6 +1,7 @@
 import type { Page } from '~tina/__generated__/types'
 import { TakeActionContainer } from './blocks/TakeAction'
 import { TeamGalleryContainer } from './blocks/TeamGallery'
+import FooterContainer from './blocks/Footer'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -18,6 +19,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<TeamGalleryContainer data={block} />
+									</div>
+								)
+							case 'PageBlocksFooter':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<FooterContainer data={block} />
 									</div>
 								)
 						}
