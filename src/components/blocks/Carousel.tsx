@@ -63,15 +63,15 @@ const CarouselSlide = ({
 					{slideTitle && (
 						<h1
 							className={cn('font-bold text-center mb-8 lg:px-20', {
-								'md:text-9xl text-8xl text-inreach-alley-green': index === 0,
-								'lg:text-7xl text-6xl text-white px-8': index !== 0,
+								'md:text-9xl text-7xl text-inreach-alley-green': index === 0,
+								'lg:text-7xl text-6xl text-inreach-white px-8': index !== 0,
 							})}
 						>
 							{slideTitle}
 						</h1>
 					)}
 					{slideContent && (
-						<p className='lg:text-2xl text-xl px-4 text-center lg:leading-[1.5em]'>{slideContent}</p>
+						<p className='md:text-2xl text-inreach-white text-xl px-4 text-center lg:leading-[1.5em]'>{slideContent}</p>
 					)}
 					{actionButton && (
 						<div className='mt-14 ml-auto mr-auto'>
