@@ -15,7 +15,7 @@ export const TeamGalleryContainer = ({ data }: { data: PageBlocksTeamGallery }) 
 	const [selected, setSelected] = useState(data?.roles?.[0]?.roleName ?? null)
 
 	return (
-		<div className='flex flex-col gap-6'>
+		<div className='flex flex-col gap-6 p-4 justify-center items-center w-full max-w-7xl mx-auto'>
 			{data.header && <h1 className='uppercase md:text-4xl font-bold text-2xl'>{data.header}</h1>}
 			{data.description && <p className='md:text-xl text-lg'>{data.description}</p>}
 			{data.roles && (
@@ -47,19 +47,22 @@ export const TeamGalleryContainer = ({ data }: { data: PageBlocksTeamGallery }) 
 							</Button.Group>
 						</div>
 					</div>
-					<div className='flex flex-col prose gap-4 md:text-xl text-lg'>
+					<div className='flex flex-col gap-4 md:text-xl text-lg'>
 						{data.roles.map((block, z) => {
 							if (block && block.roleName === selected) {
 								return (
-									<React.Fragment key={block.roleName + 'Fragment' + z}>
+									<div
+										key={block.roleName + 'Fragment' + z}
+										className='prose prose-stone prose-headings:mb-2 prose-p:mb-2 w-full max-w-none'
+									>
 										<h1 className='uppercase text-3xl font-bold'>{block.roleName}</h1>
 										<TinaMarkdown content={block.roleDescription} />
-									</React.Fragment>
+									</div>
 								)
 							}
 						})}
 						{data.roles && (
-							<div className='grid md:grid-cols-4 grid-cols-1 sm:p-6 gap-4'>
+							<div className='grid md:grid-cols-4 grid-cols-1 sm:p-6 gap-4 w-full'>
 								{data.roles.map((block) => {
 									if (block) {
 										return block.employees && block.roleName === selected
@@ -85,9 +88,15 @@ export const EmployeeCards = ({ employee }: { employee: PageBlocksTeamGalleryRol
 			{employee && (
 				<div className='flex flex-col items-center justify-start'>
 					{employee.fullName && employee.image && (
-						<Image src={employee.image} alt={employee.fullName + ' Image'} width={648} height={500} />
+						<Image
+							src={employee.image}
+							alt={employee.fullName + ' Image'}
+							height={800}
+							width={1120}
+							className='m-0'
+						/>
 					)}
-					<div className='p-2 flex flex-col w-full uppercase'>
+					<div className='p-2 flex flex-col w-full uppercase gap-1'>
 						<p className='font-bold md:text-lg tracking-wider'>
 							{employee.fullName &&
 								employee.pronouns &&
