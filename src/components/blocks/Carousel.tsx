@@ -71,7 +71,9 @@ const CarouselSlide = ({
 						</h1>
 					)}
 					{slideContent && (
-						<p className='md:text-2xl text-inreach-white text-xl px-4 text-center lg:leading-[1.5em]'>{slideContent}</p>
+						<p className='md:text-2xl text-inreach-white text-xl px-4 text-center lg:leading-[1.5em]'>
+							{slideContent}
+						</p>
 					)}
 					{actionButton && (
 						<div className='mt-14 ml-auto mr-auto'>
