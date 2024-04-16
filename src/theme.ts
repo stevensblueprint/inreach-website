@@ -3,6 +3,14 @@ import { createTheme, MantineProvider } from '@mantine/core'
 // Multiple shades of the same color can be defined by modifying the array of colors
 export default createTheme({
 	fontFamily: 'Work Sans, sans-serif',
+    fontSizes: {
+        xs: '12px',
+        sm: '14px',
+        md: '16px',
+        lg: '18px',
+        xl: '20px',
+        xxl: '24px',
+    },
 	colors: {
 		allyGreen: [
 			'#00D56C',
@@ -229,6 +237,8 @@ export default createTheme({
         fontFamily: 'Work Sans, sans-serif',
         sizes: {
             h1: { fontSize: '2.5rem', lineHeight: '3rem' },
+            h2: { fontSize: '2rem', lineHeight: '2.5rem' },
+            h3: { fontSize: '1.5rem', lineHeight: '2rem' },
         }
     },
 })
