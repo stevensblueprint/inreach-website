@@ -1,0 +1,11 @@
+.controls {
+	transition: opacity 150ms ease;
+	opacity: 0;
+	background-color: transparent;
+	color: white;
+}
+
+.root:hover > .controls {
+	opacity: 1;
+	background-color: transparent;
+}
