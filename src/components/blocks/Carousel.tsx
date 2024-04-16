@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import type { RichTextType, Template } from 'tinacms'
 import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
-import { Button, Image } from '@mantine/core'
+import { Button } from '@mantine/core'
 import Link from 'next/link'
 import { Carousel as MantineCarousel } from '@mantine/carousel'
 import Autoplay from 'embla-carousel-autoplay'
@@ -9,7 +9,7 @@ import '@mantine/carousel/styles.css'
 import { cn } from '../../lib/utils'
 import { PageBlocksCarousel } from '~tina/__generated__/types'
 import useEmblaCarousel from 'embla-carousel-react/'
-import classes from '../carousel/Demo.module.css'
+import classes from '../carousel/Controls.module.css'
 
 const components = {
 	ActionButton: ({ text, link }: { text: string; link: string }) => {
