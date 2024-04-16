@@ -1,5 +1,6 @@
 import { Button } from '@mantine/core'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import type { Template } from 'tinacms'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -136,7 +137,7 @@ export const EmployeeCards = ({ employee }: { employee: PageBlocksTeamGalleryRol
 	)
 }
 
-export const teamGalleryTemplate = {
+export const teamGalleryTemplate: Template = {
 	name: 'teamGallery',
 	label: 'Team Gallery',
 	fields: [
@@ -243,7 +244,7 @@ export const teamGalleryTemplate = {
 							ui: {
 								itemProps: (item: PageBlocksTeamGalleryRolesEmployeesSocials) => {
 									return {
-										label: item?.platform,
+										label: item?.platform || '',
 									}
 								},
 								defaultItem: {

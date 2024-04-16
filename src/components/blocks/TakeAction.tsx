@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import type { Template } from 'tinacms'
 import { Button } from '@mantine/core'
 import Link from 'next/link'
 import type {
 	PageBlocksActions,
 	PageBlocksActionsItems,
 	PageBlocksActionsItemsBodyActionButtonFilter,
-	PageBlocksActionsItemsFilter,
 } from '~tina/__generated__/types'
 import { cn } from '../../lib/utils'
 
@@ -37,9 +37,9 @@ export const TakeAction = ({
 	return display === 'flex' ? (
 		<div className={cn('md:max-w-[33.333333%] md:w-1/3 p-1 w-full', { flex: size === 'fillHeight' })}>
 			<div
-				className={cn(
+				className={
 					'w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'
-				)}
+				}
 			>
 				{data?.title && (
 					<h1 className='lg:text-2xl md:text-xl text-2xl font-bold text-center'>{data.title}</h1>
@@ -84,7 +84,7 @@ export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 	)
 }
 
-export const takeActionBlockTemplate = {
+export const takeActionBlockTemplate: Template = {
 	name: 'actions',
 	label: 'Take Action Display',
 	fields: [
@@ -124,9 +124,9 @@ export const takeActionBlockTemplate = {
 			name: 'items',
 			list: true,
 			ui: {
-				itemProps: (item: PageBlocksActionsItemsFilter) => {
+				itemProps: (item) => {
 					return {
-						label: item?.title,
+						label: item?.title || '',
 					}
 				},
 				defaultItem: {
