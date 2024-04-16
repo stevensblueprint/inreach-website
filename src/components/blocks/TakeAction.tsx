@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import type { Template } from 'tinacms'
 import { Button } from '@mantine/core'
 import Link from 'next/link'
 import type {
 	PageBlocksActions,
 	PageBlocksActionsItems,
 	PageBlocksActionsItemsBodyActionButtonFilter,
-	PageBlocksActionsItemsFilter,
 } from '~tina/__generated__/types'
 import { cn } from '../../lib/utils'
 
@@ -25,17 +25,31 @@ const components = {
 	},
 }
 
-export const TakeAction = ({ data, display, size }: { data: PageBlocksActionsItems; display: string; size: string }) => {
+export const TakeAction = ({
+	data,
+	display,
+	size,
+}: {
+	data: PageBlocksActionsItems
+	display: string
+	size: string
+}) => {
 	return display === 'flex' ? (
-		<div className={cn('md:max-w-[33.333333%] md:w-1/3 p-1 w-full', {"flex": size === 'fillHeight'})}>
-			<div className={cn('w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white')}>
-				{data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold text-center'>{data.title}</h1>}
+		<div className={cn('md:max-w-[33.333333%] md:w-1/3 p-1 w-full', { flex: size === 'fillHeight' })}>
+			<div
+				className={
+					'w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'
+				}
+			>
+				{data?.title && (
+					<h1 className='lg:text-2xl md:text-xl text-2xl font-bold text-center'>{data.title}</h1>
+				)}
 				{data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
 				<TinaMarkdown components={components} content={data?.body} />
 			</div>
 		</div>
 	) : (
-		<div className={cn('w-full p-1', {"flex": size === 'fillHeight'})}>
+		<div className={cn('w-full p-1', { flex: size === 'fillHeight' })}>
 			<div className='w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'>
 				{data?.title && <h1 className='lg:text-2xl md:text-xl text-2xl font-bold'>{data.title}</h1>}
 				{data?.text && <p className='md:text-md text-sm lg:text-lg'>{data.text}</p>}
@@ -54,13 +68,21 @@ export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 		>
 			{data.items &&
 				data.items.map((block: PageBlocksActionsItems | null, i: number) => {
-					if (block) return <TakeAction data={block} key={i + block.title} display={data.display as string} size={data.boxSizing as string} />
+					if (block)
+						return (
+							<TakeAction
+								data={block}
+								key={i + block.title}
+								display={data.display as string}
+								size={data.boxSizing as string}
+							/>
+						)
 				})}
 		</div>
 	)
 }
 
-export const takeActionBlockTemplate = {
+export const takeActionBlockTemplate: Template = {
 	name: 'actions',
 	label: 'Take Action Display',
 	fields: [
@@ -79,30 +101,30 @@ export const takeActionBlockTemplate = {
 				},
 			],
 		},
-    {
-      type: 'string',
-      name: 'boxSizing',
-      label: 'Box Sizing',
-      options: [
-        {
-          label: 'Fill Height',
-          value: 'fillHeight'
-        },
-        {
-          label: 'Fit Content',
-          value: 'fitContent'
-        }
-      ]
-    },
+		{
+			type: 'string',
+			name: 'boxSizing',
+			label: 'Box Sizing',
+			options: [
+				{
+					label: 'Fill Height',
+					value: 'fillHeight',
+				},
+				{
+					label: 'Fit Content',
+					value: 'fitContent',
+				},
+			],
+		},
 		{
 			type: 'object',
 			label: 'Action Items',
 			name: 'items',
 			list: true,
 			ui: {
-				itemProps: (item: PageBlocksActionsItemsFilter) => {
+				itemProps: (item) => {
 					return {
-						label: item?.title,
+						label: item?.title || '',
 					}
 				},
 				defaultItem: {
@@ -128,7 +150,7 @@ export const takeActionBlockTemplate = {
 					type: 'string',
 					label: 'Title',
 					name: 'title',
-          required: true
+					required: true,
 				},
 				{
 					type: 'string',
