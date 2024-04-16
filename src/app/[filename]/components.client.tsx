@@ -26,7 +26,7 @@ export const RenderedPage = ({ props }: TinaData) => {
 	})
 
 	return (
-		<div className='flex min-h-screen items-start justify-center gap-4 md:p-10 p-5 flex-col'>
+		<div className='flex min-h-screen items-start justify-center gap-4 flex-col'>
 			{data.page && <Blocks {...data.page} />}
 		</div>
 	)

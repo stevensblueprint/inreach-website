@@ -32,8 +32,19 @@ const config: Config = {
 				'inreach-brown': '5D4830',
 				'inreach-dark-brown': '322F2E',
 			},
+      keyframes: {
+        bounceImage: {
+          '0%, 100%': {transform: 'translateY(0)'}, 
+          '50%' : {transform: 'translateY(-6px)'},
+        }
+      },
+      animation: {
+        bounceImage: 'bounceImage 1.5s ease-in-out infinite'
+      }
 		},
 	},
-	plugins: [],
+	plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
 export default config
