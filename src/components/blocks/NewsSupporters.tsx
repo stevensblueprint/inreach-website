@@ -1,5 +1,5 @@
 import { cn } from '../../lib/utils'
-import { Container, Image, Title, SimpleGrid, Stack, Box } from '@mantine/core'
+import { Container, Image, SimpleGrid, Stack, Box } from '@mantine/core'
 import { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { PageBlocksNewsSupporters, PageBlocksNewsSupportersCompanies } from '~tina/__generated__/types'
