@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import type { RichTextType, Template } from 'tinacms'
 import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
 import { Button } from '@mantine/core'
@@ -8,7 +8,6 @@ import Autoplay from 'embla-carousel-autoplay'
 import '@mantine/carousel/styles.css'
 import { cn } from '../../lib/utils'
 import { PageBlocksCarousel } from '~tina/__generated__/types'
-import useEmblaCarousel from 'embla-carousel-react/'
 import classes from '../carousel/Controls.module.css'
 
 const components = {
@@ -86,25 +85,6 @@ const CarouselSlide = ({
 }
 
 export const Carousel = ({ data }: { data: PageBlocksCarousel }) => {
-	// const [emblaRef, emblaApi] = useEmblaCarousel(
-	//   {loop: true},
-	//   [Autoplay({ delay: 10000 })],
-	// );
-	// const [currentSlide, setCurrentSlide] = useState(0)
-
-	// useEffect(() => {
-	//   console.log("USE Effect", autoplay)
-	//   console.log(autoplay.current);
-	// }, [autoplay.current.reset, autoplay.current.stop]);
-
-	// useEffect(() => {
-	//   if (!emblaApi) return
-
-	//   emblaApi
-	//     .on('reInit', () => console.log("reInit"))
-	//     .on('scroll', () => console.log("scroll"))
-	// }, [emblaApi])
-
 	const autoplay = useRef(Autoplay({ delay: 10000 }))
 
 	return (
