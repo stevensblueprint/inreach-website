@@ -1,33 +1,19 @@
 import React from 'react'
 import { Button } from '@mantine/core'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
+import type {
+    PageBlocksFooter
+} from '~tina/__generated__/types'
 
 
-export const FooterContainer = ({ data }: { data: Footer }) => {
+export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
+    const description = data.description || ''; // Provide a default value for data.description if it is undefined
     return (
-        <footer className='bg-gray-900 text-white'>
-            <div className='container mx-auto py-12'>
-                <div className='flex flex-col gap-6'>
-                    {data.header && <h1 className='uppercase md:text-4xl font-bold text-2xl'>{data.header}</h1>}
-                    {data.description && <p className='md:text-xl text-lg'>{data.description}</p>}
-                    {data.links && (
-                        <div className='flex flex-col gap-4 md:text-xl text-lg'>
-                            {data.links.map((link: { url: any; text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined }, i: any) => {
-                                if (link)
-                                    return (
-                                        <Button
-                                            variant='link'
-                                            ref={link.url}
-                                            key={link.url + i}
-                                            className='uppercase rounded-none flex flex-1 justify-center items-center min-w-max md:text-lg text-sm'
-                                        >
-                                            {link.text}
-                                        </Button>
-                                    )
-                            })}
-                        </div>
-                    )}
-                </div>
+        <footer className='bg-gray-800 text-white p-4'>
+            <div className='container mx-auto'>
+                <h2 className='text-2xl font-bold'>{data.header}</h2>
+                <TinaMarkdown content={description as unknown as TinaMarkdownContent} />
+                <Button color='blue'>Get Started</Button>
             </div>
         </footer>
     )
