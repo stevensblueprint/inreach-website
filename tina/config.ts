@@ -69,7 +69,11 @@ export default defineConfig({
 						list: true,
 						name: 'blocks',
 						label: 'Sections',
-						templates: [takeActionBlockTemplate as Template, teamGalleryTemplate as Template, footerTemplate as Template],
+						templates: [
+							takeActionBlockTemplate as Template,
+							teamGalleryTemplate as Template,
+							footerTemplate as Template,
+						],
 					},
 				],
 				ui: {
