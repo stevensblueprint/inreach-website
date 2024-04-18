@@ -45,7 +45,7 @@ export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
 					<Iconify icon={'akar-icons:youtube-fill'} />
 					<Iconify icon={'akar-icons:tiktok-fill'} />
 					<Iconify icon={'akar-icons:github-fill'} />
-					<Iconify icon={'mdi:email'}/>
+					<Iconify icon={'mdi:email'} />
 				</div>
 			</div>
 		</div>

@@ -50,7 +50,7 @@ const config: Config = {
 				'inreach-red': 'C05C4A',
 				'inreach-brown': '5D4830',
 				'inreach-dark-brown': '322F2E',
-				'inreach-seconday-grey': 'F7F7F7'
+				'inreach-seconday-grey': 'F7F7F7',
 			},
 		},
 	},
