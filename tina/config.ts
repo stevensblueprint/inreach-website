@@ -76,6 +76,7 @@ export default defineConfig({
 							teamGalleryTemplate,
 							newsSupportersTemplate,
 							carouselTemplate,
+							footerTemplate,
 						],
 					},
 				],

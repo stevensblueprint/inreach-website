@@ -1,4 +1,5 @@
 import React from 'react'
+import { Template } from 'tinacms'
 import type { PageBlocksFooter } from '~tina/__generated__/types'
 
 export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
@@ -21,7 +22,7 @@ export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
 	)
 }
 
-export const footerTemplate = {
+export const footerTemplate: Template = {
 	name: 'footer',
 	label: 'Footer',
 	fields: [
