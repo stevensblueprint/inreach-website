@@ -1,18 +1,23 @@
 import React from 'react'
-import { Button } from '@mantine/core'
-import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
 import type { PageBlocksFooter } from '~tina/__generated__/types'
 
 export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
-	const description = data.description || '' // Provide a default value for data.description if it is undefined
+	const description = data.description || ''
 	return (
-		<footer className='bg-gray-800 text-white p-4'>
-			<div className='container mx-auto'>
-				<h2 className='text-2xl font-bold'>{data.header}</h2>
-				<TinaMarkdown content={description as unknown as TinaMarkdownContent} />
-				<Button color='blue'>Get Started</Button>
+		<div className='bg-inreach-secondary-grey grid grid-cols-4 gap-4'>
+			<div className='col-span-2'>
+				{/* Logo */}
+				Logo
 			</div>
-		</footer>
+			<div>
+				{/* Support */}
+				Support
+			</div>
+			<div>
+				{/* Connect */}
+				Connect
+			</div>
+		</div>
 	)
 }
 
