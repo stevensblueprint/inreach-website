@@ -79,19 +79,11 @@ export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 								size={data.boxSizing as string}
 							/>
 						)
-					if (block)
-						return (
-							<TakeAction
-								data={block}
-								key={i + block.title}
-								display={data.display as string}
-								size={data.boxSizing as string}
-							/>
-						)
 				})}
 		</div>
 	)
 }
+
 
 export const takeActionBlockTemplate: Template = {
 	name: 'actions',
