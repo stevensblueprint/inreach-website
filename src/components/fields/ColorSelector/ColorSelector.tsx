@@ -47,4 +47,4 @@ export const ColorSelector = wrapFieldsWithMeta(({ input }) => {
       </div>
     </>
   )
-})
+}) as any
