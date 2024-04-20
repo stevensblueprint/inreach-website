@@ -8,8 +8,9 @@ import type {
 	PageBlocksActionsItems,
 	PageBlocksActionsItemsBodyActionButtonFilter,
 } from '~tina/__generated__/types'
-import { cn, inputClasses } from '../../lib/utils'
-import { colorSelector } from '../fields/colorSelector'
+import { cn } from '../../lib/utils'
+import { inputClasses } from '../fields/ColorSelector/colors'
+import { ColorSelector } from '../fields/ColorSelector/ColorSelector'
 
 const components = {
 	ActionButton: (props: PageBlocksActionsItemsBodyActionButtonFilter) => {
@@ -165,7 +166,7 @@ export const takeActionBlockTemplate: Template = {
           label: 'Background Color',
           name: 'backgroundColor',
           ui: {
-            component: colorSelector
+            component: ColorSelector
           },
         },
 				{
