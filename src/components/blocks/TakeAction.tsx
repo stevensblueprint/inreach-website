@@ -9,6 +9,8 @@ import type {
 	PageBlocksActionsItemsBodyActionButtonFilter,
 } from '~tina/__generated__/types'
 import { cn } from '../../lib/utils'
+import { inputClasses } from '../fields/ColorSelector/colors'
+import { ColorSelector } from '../fields/ColorSelector/ColorSelector'
 
 const components = {
 	ActionButton: (props: PageBlocksActionsItemsBodyActionButtonFilter) => {
@@ -37,9 +39,10 @@ export const TakeAction = ({
 	return display === 'flex' ? (
 		<div className={cn('md:max-w-[33.333333%] md:w-1/3 p-1 w-full', { flex: size === 'fillHeight' })}>
 			<div
-				className={
-					'w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4 bg-white'
-				}
+				className={cn(
+					'w-full gap-3 border-2 border-black rounded-lg flex flex-col justify-between items-center text-black p-4',
+					data.backgroundColor ? inputClasses[data.backgroundColor] : 'bg-white'
+				)}
 			>
 				{data?.title && (
 					<h1 className='lg:text-2xl md:text-xl text-2xl font-bold text-center'>{data.title}</h1>
@@ -158,6 +161,14 @@ export const takeActionBlockTemplate: Template = {
 					type: 'string',
 					label: 'Text',
 					name: 'text',
+				},
+				{
+					type: 'string',
+					label: 'Background Color',
+					name: 'backgroundColor',
+					ui: {
+						component: ColorSelector,
+					},
 				},
 				{
 					label: 'Body',

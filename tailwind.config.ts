@@ -32,8 +32,8 @@ const config: Config = {
 				bounceImage: 'bounceImage 1.5s ease-in-out infinite',
 			},
 			colors: {
-				'inreach-alley-green': '#00D56C',
-				'inreach-light-gray': '#EFEFEF',
+				'inreach-ally-green': '#00D56C',
+				'inreach-light-grey': '#EFEFEF',
 				'inreach-soft-black': '#21272C',
 				'inreach-dark-grey': '#65676B',
 				'inreach-white': '#FFFFFF',

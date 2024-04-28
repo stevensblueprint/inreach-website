@@ -15,7 +15,7 @@ const components = {
 		return (
 			<Button
 				variant='filled'
-				className='ml-auto mr-auto bg-inreach-alley-green border-inreach-white text-white transition-colors hover:bg-inreach-white hover:border-inreach-alley-green hover:text-inreach-alley-green'
+				className='ml-auto mr-auto bg-inreach-ally-green border-inreach-white text-white transition-colors hover:bg-inreach-white hover:border-inreach-ally-green hover:text-inreach-ally-green'
 				component={Link}
 				href={{ pathname: link }}
 				size='md'
@@ -63,7 +63,7 @@ const CarouselSlide = ({
 					{slideTitle && (
 						<h1
 							className={cn('font-bold text-center mb-8 lg:px-20', {
-								'md:text-9xl text-7xl text-inreach-alley-green': index === 0,
+								'md:text-9xl text-7xl text-inreach-ally-green': index === 0,
 								'lg:text-7xl text-6xl text-inreach-white px-8': index !== 0,
 							})}
 						>
