@@ -1,4 +1,4 @@
-import { createTheme, MantineProvider } from '@mantine/core'
+import { createTheme } from '@mantine/core'
 
 // Multiple shades of the same color can be defined by modifying the array of colors
 export default createTheme({

@@ -1,105 +1,123 @@
-import React, { useRef } from 'react'
-import type { RichTextType, Template } from 'tinacms'
-import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
-import { Button } from '@mantine/core'
-import Link from 'next/link'
-import { Carousel as MantineCarousel } from '@mantine/carousel'
-import Autoplay from 'embla-carousel-autoplay'
-import '@mantine/carousel/styles.css'
+import React from 'react'
+import { Template } from 'tinacms'
+import { ColorSelector } from '../fields/ColorSelector/ColorSelector'
+import { PageBlocksLookingFor, PageBlocksLookingForBoxes } from '~tina/__generated__/types'
 import { cn } from '../../lib/utils'
-import { PageBlocksCarousel } from '~tina/__generated__/types'
-import classes from '../carousel/Controls.module.css'
+import { inputClasses, inputProseClasses } from '../fields/ColorSelector/colors'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
-const InfoSection = ({ stats }) => {
-  return (
-    <div className="info-section">
-      {stats.map((stat, index) => (
-        <div key={index} className="stat-block">
-          <div className="stat-number">{stat.number}</div>
-          <div className="stat-description">{stat.description}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
+export const LookingForContainer = ({ data }: { data: PageBlocksLookingFor }) => {
+	return (
+		<section className='w-full md:grid-cols-4 grid sm:grid-cols-2 grid-cols-1 min-h-52'>
+			{data.leftHeader && (
+				<div
+					className={cn(
+						'sm:col-span-2 col-span-1 md:p-12 p-4 flex justify-center items-start prose flex-col max-w-none prose-headings:m-0 prose-p:m-0 gap-2',
+						data.leftHeader.backgroundColor ? inputClasses[data.leftHeader.backgroundColor] : 'bg-white',
+						data.leftHeader.textColor
+							? inputProseClasses[data.leftHeader?.textColor]
+							: `prose-headings:text-black prose-p:text-black`
+					)}
+				>
+					<TinaMarkdown content={data.leftHeader.header} />
+				</div>
+			)}
+			{data.boxes &&
+				data.boxes.map((box, i) => {
+					if (box) return <LookingForBlock data={box} key={i} />
+				})}
+		</section>
+	)
+}
 
-export const LookingForContainer = () => {
-  const stats = [
-    {
-      number: '500+',
-      description: 'anti-LGBTQ+ bills were introduced in 49 U.S. states during 2023, with the majority targeting the trans community',
-    },
-    {
-      number: '43%',
-      description: 'of young people (ages 18-24) living in the U.S. reported that they have considered moving as a result of anti-LGBTQ+ legislation, whether that’s relocating to another state or leaving the country altogether',
-    },
-    {
-      number: '4¢',
-      description: 'of every $100 awarded by U.S. foundations focuses on trans communities and only 28 cents supports LGBTQ+ issues',
-    },
-    {
-      number: '60+',
-      description: 'countries around the world where it remains illegal or fundamentally unsafe to live openly as a LGBTQ+ person',
-    },
-    {
-      number: '3,000,000+',
-      description: 'cases backlogged in the U.S. immigration court system',
-    },
-  ];
+const LookingForBlock = ({ data }: { data: PageBlocksLookingForBoxes }) => {
+	return (
+		<div
+			className={cn(
+				'w-full text-center flex justify-center items-center text-pretty p-4',
+				data.boxBackgroundColor ? inputClasses[data.boxBackgroundColor] : 'bg-white',
+				data.boxTextColor ? inputProseClasses[data.boxTextColor] : 'text-black'
+			)}
+		>
+			<TinaMarkdown content={data.boxContent} />
+		</div>
+	)
+}
 
-  return (
-    <div className="looking-for-container">
-      <div className="header-block">
-        <div className="header">I AM LOOKING FOR</div>
-      </div>
-      <div className="buttons-block">
-        <button className="service-button">HELP & SERVICES FOR MYSELF</button>
-        <button className="resources-button">INFORMATION & RESOURCES FOR A CLIENT OR SOMEONE ELSE</button>
-        <button className="support-button">HOW TO SUPPORT INREACH AND THE LGBTQ+ COMMUNITY</button>
-      </div>
-      <InfoSection stats={stats} />
-    </div>
-  );
-};
-
-export const lookingForTemplatelTemplatlookingFlookingFlookingFlookingFForTempl = {
-  name: 'lookingFor',
-  label: 'Looking For',
-  fields: [
-    {
-      name: 'header',
-      type: 'string',
-      label: 'Header Text',
-    },
-    {
-      name: 'buttons',
-      type: 'object',
-      list: true,
-      label: 'Buttons',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'text', type: 'string', label: 'Button Text' },
-            { name: 'link', type: 'string', label: 'Button Link' },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'stats',
-      type: 'object',
-      list: true,
-      label: 'Stats',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'number', type: 'string', label: 'Number' },
-            { name: 'description', type: 'rich-text', label: 'Description' },
-          ],
-        },
-      ],
-    },
-  ],
-};
+export const lookingForTemplate: Template = {
+	name: 'lookingFor',
+	label: 'Looking For',
+	fields: [
+		{
+			name: 'leftHeader',
+			type: 'object',
+			label: 'Left Header',
+			fields: [
+				{
+					name: 'header',
+					type: 'rich-text',
+					label: 'Header',
+					isBody: true,
+				},
+				{
+					name: 'textColor',
+					type: 'string',
+					label: 'Text Color',
+					ui: {
+						component: ColorSelector,
+					},
+				},
+				{
+					name: 'backgroundColor',
+					type: 'string',
+					label: 'Background Color',
+					ui: {
+						component: ColorSelector,
+					},
+				},
+			],
+		},
+		{
+			name: 'boxes',
+			type: 'object',
+			label: 'Boxes',
+			list: true,
+			ui: {
+				itemProps: (item: PageBlocksLookingForBoxes) => ({
+					key: item?.title ? item.title : 'Blank Box',
+					label: item?.title ? item.title : 'Blank Box',
+				}),
+			},
+			fields: [
+				{
+					name: 'title',
+					type: 'string',
+					label: 'Box Title',
+					description: 'This is for the labels in the CMS',
+				},
+				{
+					name: 'boxContent',
+					type: 'rich-text',
+					isBody: true,
+					label: 'Box Content',
+				},
+				{
+					name: 'boxTextColor',
+					type: 'string',
+					label: 'Box Text Color',
+					ui: {
+						component: ColorSelector,
+					},
+				},
+				{
+					name: 'boxBackgroundColor',
+					type: 'string',
+					label: 'Box Background Color',
+					ui: {
+						component: ColorSelector,
+					},
+				},
+			],
+		},
+	],
+}

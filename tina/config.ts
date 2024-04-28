@@ -4,7 +4,9 @@ import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
 import { newsSupportersTemplate } from '../src/components/blocks/NewsSupporters'
 import { carouselTemplate } from '../src/components/blocks/Carousel'
+import { footerTemplate } from '../src/components/blocks/Footer'
 import { lookingForTemplate } from '../src/components/blocks/LookingFor'
+import { titleImageGridTemplate } from '../src/components/blocks/layout/TitleImageGrid'
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
@@ -77,13 +79,17 @@ export default defineConfig({
 							teamGalleryTemplate,
 							newsSupportersTemplate,
 							carouselTemplate,
+							footerTemplate,
 							lookingForTemplate,
+							titleImageGridTemplate,
 						],
 					},
 				],
 				ui: {
 					// This is an DEMO router. You can remove this to fit your site
-					router: ({ document }) => `/${document._sys.filename}`,
+					router: ({ document }) => {
+						return `/${document._sys.filename}`
+					},
 				},
 			},
 		],

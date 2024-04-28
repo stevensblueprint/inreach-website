@@ -9,7 +9,7 @@ export const NewsSupporters = ({ data }: { data: PageBlocksNewsSupporters }) => 
 		<Container fluid className='max-w-7xl'>
 			<Stack justify='center' align='center' gap={0}>
 				{data.title && (
-					<div className='prose text-center prose-stone prose-headings:m-0 prose-p:m-0'>
+					<div className='prose text-center prose-stone prose-headings:m-0 prose-p:m-0 p-4'>
 						<TinaMarkdown content={data.title} />
 					</div>
 				)}
@@ -24,7 +24,7 @@ export const NewsSupporters = ({ data }: { data: PageBlocksNewsSupporters }) => 
 											alt={company.name + ' Image'}
 											className={cn('bg-white bg-clip-content shadow-lg', {
 												'rounded-full max-w-[150px] hover:animate-bounceImage': data.format === 'circle',
-												'rounded-lg max-w-[150px]': data.format === 'square',
+												'rounded-lg max-w-[150px] hover:animate-bounceImage': data.format === 'square',
 											})}
 										/>
 									</Box>
