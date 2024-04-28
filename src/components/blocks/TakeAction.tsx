@@ -87,7 +87,6 @@ export const TakeActionContainer = ({ data }: { data: PageBlocksActions }) => {
 	)
 }
 
-
 export const takeActionBlockTemplate: Template = {
 	name: 'actions',
 	label: 'Take Action Display',

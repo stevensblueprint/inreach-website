@@ -64,6 +64,6 @@ export const footerTemplate: Template = {
 			name: 'disclaimer',
 			type: 'string',
 			label: 'Disclaimer',
-		}
+		},
 	],
 }
