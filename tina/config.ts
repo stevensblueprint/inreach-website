@@ -4,6 +4,7 @@ import { takeActionBlockTemplate } from '../src/components/blocks/TakeAction'
 import { teamGalleryTemplate } from '../src/components/blocks/TeamGallery'
 import { newsSupportersTemplate } from '../src/components/blocks/NewsSupporters'
 import { carouselTemplate } from '../src/components/blocks/Carousel'
+import { footerTemplate } from '../src/components/blocks/Footer'
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main'
@@ -75,6 +76,7 @@ export default defineConfig({
 							teamGalleryTemplate,
 							newsSupportersTemplate,
 							carouselTemplate,
+							footerTemplate,
 						],
 					},
 				],

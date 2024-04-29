@@ -3,6 +3,7 @@ import { TakeActionContainer } from './blocks/TakeAction'
 import { TeamGalleryContainer } from './blocks/TeamGallery'
 import { NewsSupporters } from './blocks/NewsSupporters'
 import { CarouselContainer } from './blocks/Carousel'
+import { FooterContainer } from './blocks/Footer'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -32,6 +33,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<CarouselContainer data={block} />
+									</div>
+								)
+							case 'PageBlocksFooter':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<FooterContainer data={block} />
 									</div>
 								)
 						}
