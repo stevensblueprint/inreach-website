@@ -56,12 +56,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 										<TitleImageGrid data={block} />
 									</div>
 								)
-              case 'PageBlocksHeader':
-                return (
-                  <div key={i + block.__typename} className='w-full'>
-                    <Header data={block} />
-                  </div>
-                )
+							case 'PageBlocksHeader':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<Header data={block} />
+									</div>
+								)
 						}
 					})
 				: null}

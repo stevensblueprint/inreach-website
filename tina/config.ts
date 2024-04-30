@@ -83,7 +83,7 @@ export default defineConfig({
 							footerTemplate,
 							lookingForTemplate,
 							titleImageGridTemplate,
-              headerTemplate
+							headerTemplate,
 						],
 					},
 				],
