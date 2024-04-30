@@ -15,7 +15,7 @@ export const TitleImageGrid = ({ data }: { data: PageBlocksTitleImageGrid }) => 
 			{data.titleImageGridHeader && (
 				<div
 					className={cn(
-						'w-full prose prose-headings:m-0 prose-p:m-0 max-w-none text-center mb-4',
+						'w-full prose prose-headings:m-0 prose-p:m-0 max-w-none text-center mb-4 pt-4',
 						data.titleImageGridHeader.titleTextColor &&
 							inputProseClasses[data.titleImageGridHeader.titleTextColor]
 					)}

@@ -6,6 +6,7 @@ import { CarouselContainer } from './blocks/Carousel'
 import { FooterContainer } from './blocks/Footer'
 import { LookingForContainer } from './blocks/LookingFor'
 import { TitleImageGrid } from './blocks/layout/TitleImageGrid'
+import { Header } from './blocks/layout/Header'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -53,6 +54,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<TitleImageGrid data={block} />
+									</div>
+								)
+							case 'PageBlocksHeader':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<Header data={block} />
 									</div>
 								)
 						}
