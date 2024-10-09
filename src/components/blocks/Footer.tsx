@@ -8,14 +8,16 @@ import { Icon as Iconify } from '@iconify/react'
 
 export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
 	return (
-		<div className='bg-inreach-secondary-grey grid grid-cols-4 gap-4 pl-12 py-10'>
-			<div className='col-span-2 grid grid-rows-4'>
+		<div className='bg-inreach-secondary-grey grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-12 py-10'>
+			<div className='col-span-2 grid grid-rows-4 max-sm:place-items-center'>
 				{/* Logo */}
-				<Image src={InReachLogo} alt='in-reach-logo' className='w-1/6 ' />
-				<h1>
-					<p className='text-2xl w-3/4'>{data.slogan}</p>
+				<Image src={InReachLogo} alt='in-reach-logo' className='sm:w-1/6 w-1/2' />
+				<h1 className='max-sm:text-center'>
+					<p className='text-2xl w-3/4 max-sm:w-full'>{data.slogan}</p>
 				</h1>
-				<Button className='w-1/3 bg-black'>Powered by Vercel</Button>
+				<Button className='mt-3 min-w-[160px] px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base w-1/3 bg-black'>
+					Powered by Vercel
+				</Button>
 				<p>{data.disclaimer}</p>
 			</div>
 			<div className='flex flex-col space-y-4'>
