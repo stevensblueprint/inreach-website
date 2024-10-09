@@ -15,7 +15,9 @@ export const FooterContainer = ({ data }: { data: PageBlocksFooter }) => {
 				<h1 className='max-sm:text-center'>
 					<p className='text-2xl w-3/4 max-sm:w-full'>{data.slogan}</p>
 				</h1>
-				<Button className='mt-3 min-w-[160px] px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base w-1/3 bg-black'>Powered by Vercel</Button>
+				<Button className='mt-3 min-w-[160px] px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base w-1/3 bg-black'>
+					Powered by Vercel
+				</Button>
 				<p>{data.disclaimer}</p>
 			</div>
 			<div className='flex flex-col space-y-4'>

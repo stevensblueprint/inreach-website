@@ -13,35 +13,33 @@ import { inputClasses } from '../../../components/fields/ColorSelector/colors'
 import { useDisclosure } from '@mantine/hooks'
 
 export const Header = ({ data }: { data: PageBlocksHeader }) => {
+	const items = data.navLinks
+		? data.navLinks.map((item, i) => {
+				return (
+					<Menu key={item?.linkName} trigger='hover' withinPortal>
+						{item?.linkName && (
+							<Menu.Target>
+								<p className='font-bold'>{item?.linkName}</p>
+							</Menu.Target>
+						)}
+						<Menu.Dropdown>
+							{item &&
+								item.linkUrls &&
+								item.linkUrls.map((link, i) => {
+									if (link && link.sectionUrl && link.pathURL)
+										return (
+											<Menu.Item key={link.sectionUrl}>
+												<a href={`${link.pathURL}`}>{link.sectionUrl}</a>
+											</Menu.Item>
+										)
+								})}
+						</Menu.Dropdown>
+					</Menu>
+				)
+			})
+		: null
 
-  const items = data.navLinks ? 
-                  data.navLinks.map((item, i) => {
-                    return (
-                      <Menu key={item?.linkName} trigger='hover' withinPortal>
-                        {item?.linkName && (
-                          <Menu.Target>
-                            <p className='font-bold'>{item?.linkName}</p>
-                          </Menu.Target>
-                        )}
-                        <Menu.Dropdown>
-                          {item &&
-                            item.linkUrls &&
-                            item.linkUrls.map((link, i) => {
-                              if (link && link.sectionUrl && link.pathURL)
-                                return (
-                                  <Menu.Item key={link.sectionUrl}>
-                                    <a href={`${link.pathURL}`}>{link.sectionUrl}</a>
-                                  </Menu.Item>
-                                )
-                            })}
-                        </Menu.Dropdown>
-                      </Menu>
-                    )
-						      }) 
-                : 
-                  null
-  
-  const [opened, { toggle }] = useDisclosure(false)
+	const [opened, { toggle }] = useDisclosure(false)
 
 	return (
 		<header
@@ -55,12 +53,12 @@ export const Header = ({ data }: { data: PageBlocksHeader }) => {
 					<Image src={data.logo?.src} alt={data.logo.alt} width={200} height={60} />
 				)}
 				{data.navLinks && (
-          <>
-            <Group className='md:w-1/2 flex justify-between' visibleFrom='sm'>
-              {items}
-            </Group>
-            <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-          </>
+					<>
+						<Group className='md:w-1/2 flex justify-between' visibleFrom='sm'>
+							{items}
+						</Group>
+						<Burger opened={opened} onClick={toggle} size='sm' hiddenFrom='sm' />
+					</>
 				)}
 			</div>
 		</header>
