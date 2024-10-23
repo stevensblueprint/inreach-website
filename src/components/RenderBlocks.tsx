@@ -7,6 +7,7 @@ import { FooterContainer } from './blocks/Footer'
 import { LookingForContainer } from './blocks/LookingFor'
 import { TitleImageGrid } from './blocks/layout/TitleImageGrid'
 import { Header } from './blocks/layout/Header'
+import { OurImpactContainer } from './blocks/OurImpact'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -60,6 +61,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<Header data={block} />
+									</div>
+								)
+							case 'PageBlocksOurImpact':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<OurImpactContainer data={block} />
 									</div>
 								)
 						}
