@@ -39,3 +39,24 @@ export const inputProseClasses: Record<string, string> = {
 	Brown: 'prose-headings:text-inreach-brown prose-p:text-inreach-brown',
 	'Dark Brown': 'prose-headings:text-inreach-dark-brown prose-p:text-inreach-dark-brown',
 }
+
+export const textColorClasses: Record<string, string> = {
+	'Ally Green': 'text-inreach-ally-green',
+	'Light Grey': 'text-inreach-light-grey',
+	'Soft Black': 'text-inreach-soft-black',
+	'Dark Grey': 'text-inreach-dark-grey',
+	White: 'text-inreach-white',
+	Teal: 'text-inreach-teal',
+	Cornflower: 'text-inreach-cornflower',
+	'Cool Grey': 'text-inreach-cool-grey',
+	Pink: 'text-inreach-pink',
+	'Light Blue': 'text-inreach-light-blue',
+	Purple: 'text-inreach-purple',
+	'Dark Blue': 'text-inreach-dark-blue',
+	Green: 'text-inreach-green',
+	Yellow: 'text-inreach-yellow',
+	Orange: 'text-inreach-orange',
+	Red: 'text-inreach-red',
+	Brown: 'text-inreach-brown',
+	'Dark Brown': 'text-inreach-dark-brown',
+}

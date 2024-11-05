@@ -7,7 +7,7 @@ import { FooterContainer } from './blocks/Footer'
 import { LookingForContainer } from './blocks/LookingFor'
 import { TitleImageGrid } from './blocks/layout/TitleImageGrid'
 import { Header } from './blocks/layout/Header'
-import { OurImpactContainer } from './blocks/OurImpact'
+import { TwoColumn } from './blocks/layout/TwoColumn'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -63,10 +63,10 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 										<Header data={block} />
 									</div>
 								)
-							case 'PageBlocksOurImpact':
+							case 'PageBlocksTwoColumn':
 								return (
 									<div key={i + block.__typename} className='w-full'>
-										<OurImpactContainer data={block} />
+										<TwoColumn data={block} />
 									</div>
 								)
 						}
