@@ -120,7 +120,6 @@ export const EmployeeCards = ({ employee }: { employee: PageBlocksTeamGalleryRol
 														<Icon
 															icon={social.iconName}
 															className='hover:scale-110 transition-all text-2xl'
-															observe={false}
 														/>
 													)}
 												</Link>

@@ -1,10 +1,11 @@
-import type { RichTextType, Template } from 'tinacms'
-import { TinaMarkdown, type Components } from 'tinacms/dist/rich-text'
+import type { Template } from 'tinacms'
+import { TinaMarkdown, type Components, TinaMarkdownContent } from 'tinacms/dist/rich-text'
 import { PageBlocksTwoColumn } from '~tina/__generated__/types'
 import { textColorClasses } from '../../fields/ColorSelector/colors'
 import { ColorSelector } from '../../fields/ColorSelector/ColorSelector'
 import { cn } from '../../../lib/utils'
 
+// helper function to parse youtube video id from shared url
 const ytParser = (url: string) => {
 	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
 	var match = url.match(regExp)
@@ -13,7 +14,6 @@ const ytParser = (url: string) => {
 
 const tinaComponents: Components<any> = {
 	YoutubeEmbed: ({ url }: { url: string }): JSX.Element => {
-		// using the ytParser function to retrieve video id
 		let ytURL = url ? `https://www.youtube.com/embed/${ytParser(url)}` : ''
 		return (
 			<span className='flex h-[330px] lg:h-[400px] justify-center items-center'>
@@ -43,9 +43,9 @@ const tinaComponents: Components<any> = {
 	},
 }
 
-const ColumnContent = ({ richTextContent }: { richTextContent: RichTextType }) => {
+const ColumnContent = ({ richTextContent }: { richTextContent: TinaMarkdownContent }) => {
 	return (
-		<div className='w-1/2 flex flex-col grow justify-center prose prose-headings:my-6 prose-p:my-2'>
+		<div className='w-full md:w-1/2 flex flex-col grow justify-center prose prose-headings:my-6 prose-p:my-2'>
 			<TinaMarkdown components={tinaComponents} content={richTextContent} />
 		</div>
 	)
@@ -56,7 +56,7 @@ export const TwoColumn = ({ data }: { data: PageBlocksTwoColumn }) => {
 	return (
 		<div className='w-full flex flex-col justify-center items-center p-10'>
 			<div className='w-full max-w-7xl'>
-				<h1 className='text-2xl pb-10 font-bold'>{heading}</h1>
+				{heading && <h1 className='text-2xl uppercase pb-10 font-bold'>{heading}</h1>}
 				<div className='w-full flex flex-col md:flex-row gap-10 justify-center'>
 					<ColumnContent richTextContent={richTextLeft} />
 					<ColumnContent richTextContent={richTextRight} />
@@ -66,7 +66,6 @@ export const TwoColumn = ({ data }: { data: PageBlocksTwoColumn }) => {
 	)
 }
 
-// template for a side by side layout with an image or video on the left and rich-text on the right
 export const twoColumnTemplate: Template = {
 	name: 'twoColumn',
 	label: 'Two Column',
