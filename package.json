@@ -29,8 +29,8 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"tailwind-merge": "^2.2.2",
-		"tinacms": "^2.2.6",
-		"tinacms-authjs": "^2.0.0",
+		"tinacms": "2.4.0",
+		"tinacms-authjs": "7.0.0",
 		"tinacms-gitprovider-github": "^1.0.4",
 		"upstash-redis-level": "^1.1.1"
 	},
