@@ -9,10 +9,10 @@ export default function Home() {
 			<h1 className='md:text-8xl text-4xl text-center font-bold text-inreach-ally-green mb-2'>InReach</h1>
 			<div className='flex gap-3 justify-center items-center'>
 				<Link href={'https://github.com/stevensblueprint/inreach-website'} target='_blank'>
-					<Icon icon='mdi:github' observe={false} className='hover:scale-110 transition-all text-4xl' />
+					<Icon icon='mdi:github' className='hover:scale-110 transition-all text-4xl' />
 				</Link>
 				<Link href={'https://inreach.org/'} target='_blank'>
-					<Icon icon='mdi:home' observe={false} className='hover:scale-110 transition-all text-4xl' />
+					<Icon icon='mdi:home' className='hover:scale-110 transition-all text-4xl' />
 				</Link>
 			</div>
 		</main>
