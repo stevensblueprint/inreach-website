@@ -10,6 +10,7 @@ import { titleImageGridTemplate } from '../src/components/blocks/layout/TitleIma
 import { headerTemplate } from '../src/components/blocks/layout/Header'
 import { twoColumnTemplate } from '../src/components/blocks/layout/TwoColumn'
 import { richTextTemplate } from '../src/components/blocks/layout/RichText'
+import { heroTemplate } from '../src/components/blocks/layout/Hero'
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
@@ -88,6 +89,7 @@ export default defineConfig({
 							headerTemplate,
 							twoColumnTemplate,
 							richTextTemplate,
+							heroTemplate,
 						],
 					},
 				],
