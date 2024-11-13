@@ -28,6 +28,8 @@
 		"next-auth": "^4.24.7",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-grid-gallery": "^1.0.1",
+		"react-spring-lightbox": "^1.8.0",
 		"tailwind-merge": "^2.2.2",
 		"tinacms": "2.4.0",
 		"tinacms-authjs": "7.0.0",

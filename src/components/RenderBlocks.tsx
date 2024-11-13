@@ -9,6 +9,7 @@ import { TitleImageGrid } from './blocks/layout/TitleImageGrid'
 import { Header } from './blocks/layout/Header'
 import { TwoColumn } from './blocks/layout/TwoColumn'
 import { RichText } from './blocks/layout/RichText'
+import { PhotoGallery } from './blocks/PhotoGallery'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 	return (
@@ -74,6 +75,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<RichText data={block} />
+									</div>
+								)
+							case 'PageBlocksPhotoGallery':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<PhotoGallery data={block} />
 									</div>
 								)
 						}
