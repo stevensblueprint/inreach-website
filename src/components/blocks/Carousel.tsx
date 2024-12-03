@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import type { RichTextType, Template } from 'tinacms'
+import type { Template } from 'tinacms'
 import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
 import { Button } from '@mantine/core'
 import Link from 'next/link'
@@ -38,7 +38,7 @@ const CarouselSlide = ({
 }: {
 	index: number
 	slideTitle: string
-	slideContent: RichTextType
+	slideContent: string
 	actionButton?: TinaMarkdownContent
 	backgroundImage: string
 	darken?: boolean
