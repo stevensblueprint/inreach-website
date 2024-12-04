@@ -26,7 +26,7 @@ const LightBoxWrapper = ({
 	return (
 		<div className='w-full relative'>
 			<Lightbox
-				className='bg-opacity-90 bg-black'
+				className='bg-opacity-80 bg-black'
 				isOpen={isOpen}
 				onPrev={gotoPrevious}
 				onNext={gotoNext}
