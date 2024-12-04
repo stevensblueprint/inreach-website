@@ -11,6 +11,8 @@ import { headerTemplate } from '../src/components/blocks/layout/Header'
 import { twoColumnTemplate } from '../src/components/blocks/layout/TwoColumn'
 import { richTextTemplate } from '../src/components/blocks/layout/RichText'
 import { photoGalleryTemplate } from '../src/components/blocks/PhotoGallery'
+import { accordionTemplate } from '../src/components/blocks/AccordionBlock'
+import { heroTemplate } from '../src/components/blocks/layout/Hero'
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
@@ -90,6 +92,8 @@ export default defineConfig({
 							twoColumnTemplate,
 							richTextTemplate,
 							photoGalleryTemplate,
+							accordionTemplate,
+							heroTemplate,
 						],
 					},
 				],
