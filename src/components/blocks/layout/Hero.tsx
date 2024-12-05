@@ -19,11 +19,15 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
 				/>
 			)}
 			<div
-				className={cn('absolute prose top-1/2 transform -translate-y-1/2 px-6 md:prose-h1:text-6xl prose-h1:text-4xl max-w-none flex flex-col gap-4', {
-					'right-0': data.heroHeaderText?.position === 'Right',
-					'left-0': data.heroHeaderText?.position === 'Left',
-          'left-1/2 transform -translate-x-1/2 w-2/3 text-center': data.heroHeaderText?.position === 'Middle'
-				})}
+				className={cn(
+					'absolute prose top-1/2 transform -translate-y-1/2 px-6 md:prose-h1:text-6xl prose-h1:text-4xl max-w-none flex flex-col gap-4',
+					{
+						'right-0': data.heroHeaderText?.position === 'Right',
+						'left-0': data.heroHeaderText?.position === 'Left',
+						'left-1/2 transform -translate-x-1/2 w-2/3 text-center':
+							data.heroHeaderText?.position === 'Middle',
+					}
+				)}
 			>
 				<TinaMarkdown components={tinaMarkdownComponents} content={data.heroHeaderText?.text} />
 			</div>
@@ -56,7 +60,7 @@ export const heroTemplate: Template = {
 		{
 			name: 'heroHeaderText',
 			type: 'object',
-      label: 'Hero Header Text',
+			label: 'Hero Header Text',
 			fields: [
 				{
 					name: 'text',
