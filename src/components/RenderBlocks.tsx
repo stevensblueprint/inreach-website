@@ -10,6 +10,7 @@ import { Header } from './blocks/layout/Header'
 import { AccordionContainer } from './blocks/AccordionBlock'
 import { TwoColumn } from './blocks/layout/TwoColumn'
 import { RichText } from './blocks/layout/RichText'
+import { PhotoGallery } from './blocks/PhotoGallery'
 import { Hero } from './blocks/layout/Hero'
 
 export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
@@ -82,6 +83,12 @@ export const Blocks = (props: Omit<Page, 'id' | '_sys' | '_values'>) => {
 								return (
 									<div key={i + block.__typename} className='w-full'>
 										<RichText data={block} />
+									</div>
+								)
+							case 'PageBlocksPhotoGallery':
+								return (
+									<div key={i + block.__typename} className='w-full'>
+										<PhotoGallery data={block} />
 									</div>
 								)
 							case 'PageBlocksHero':
