@@ -7,7 +7,7 @@ import {
 } from '../fields/TinaMarkdownComponents/TinaMarkdownComponents'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { ColorSelector } from '../fields/ColorSelector/ColorSelector'
-import { inputClasses, rawColorClasses } from '../fields/ColorSelector/colors'
+import { inputClasses } from '../fields/ColorSelector/colors'
 import { cn } from '../../lib/utils'
 
 export const ImageTextButtonBlock = ({ data }: { data: PageBlocksImagetextbutton }) => {
