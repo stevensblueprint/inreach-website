@@ -13,6 +13,7 @@ import { richTextTemplate } from '../src/components/blocks/layout/RichText'
 import { photoGalleryTemplate } from '../src/components/blocks/PhotoGallery'
 import { accordionTemplate } from '../src/components/blocks/AccordionBlock'
 import { heroTemplate } from '../src/components/blocks/layout/Hero'
+import { imageTextButtonTemplate } from '../src/components/blocks/ImageTextButton'
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
@@ -94,6 +95,7 @@ export default defineConfig({
 							photoGalleryTemplate,
 							accordionTemplate,
 							heroTemplate,
+							imageTextButtonTemplate,
 						],
 					},
 				],
