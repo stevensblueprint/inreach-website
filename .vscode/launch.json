@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/thanhnguyen/Desktop/Classes/CS_385/PA7",
+      "program": "/Users/thanhnguyen/Desktop/Classes/CS_385/PA7/build/Debug/outDebug"
+    }
+  ]
+}
