@@ -17,6 +17,7 @@ blocks:
       src: /home/Juniorboard.jpg
       alt: background images
       colorFilter: '#758193'
+
     heroHeaderText:
       text: |
         # <ColoredText color="White" text="ABOUT US" />
@@ -134,6 +135,61 @@ blocks:
       Welcome to our trans-led nonprofit serving the diverse LGBTQ+ community.
       Meet our team, including staff, volunteers, interns, Board of Directors,
       Young Professionals Board, and Advisory Council below.
+    _template: hero
+  - titleImageGridHeader:
+      titleImageGridHeaderRich: |
+        # Our Founding Story & History
+      titleTextColor: Ally Green
+    titleImageGridContent:
+      - titleIGContentLabel: Story
+        titleImageGridContentRich: >
+          ### InReach is the world’s first open source platform matching LGBTQ+
+          people facing persecution or discrimination with safe, verified
+          resources.
+        contentTextColor: Soft Black
+    _template: titleImageGrid
+  - titleImageGridHeader:
+      titleImageGridHeaderRich: |
+        ##
+      titleTextColor: Green
+      titleBackgroundColor: ''
+    titleImageGridImage:
+      src: /home/Junior_Board_Cover.jpg
+    _template: titleImageGrid
+  - richTextLeft: "![](/people/JSgarro.jpg)\n\n“As someone who has had the privilege of hearing numerous success  stories over the years and who used the free InReach App to locate  trusted trans affirming legal, medical, and mental health services  during my own transition, I have such high hopes for this organization’s future.”\n\nJamie Sgaro\LInReach Co-Founder & Executive Director\n"
+    richTextRight: |
+      ##
+
+      ![](/inreach-logos/InReach_Logo_Rainbow_RGB.svg)![](/home/Juniorboard.jpg)
+    _template: twoColumn
+  - richTextLeft: |
+      ![](/home/Homepage.jpg)
+    richTextRight: "Jamie Sargo\n\nJamie  co-founded InReach (fka AsylumConnect) during his senior year at the  University of Pennsylvania. At Penn, a classmate shared his personal  experience struggling to find safe resources during the U.S. asylum  process despite access to technology. As a trans man who grew up in a  conservative environment, the feeling of not being able to live  authentically and lacking easily accessible information on how to find  affirming support deeply resonated with Jamie. So,  during their senior year, the two friends co-founded AsylumConnect, a  501(c)(3) nonprofit organization started as the world’s first technology  platform for LGBTQ+ asylum seekers, to fill the critical resource  information gap facing the diverse LGBTQ+ community. The organization is  founded on the belief that every LGBTQ+ person deserves the safety and freedom to live authentically.\_\n\_\nIn May 2022, AsylumConnect officially became InReach. Since  launching its app in 2016, the organization has seen the platform be  used by a wide variety of LGBTQ+ people, in addition to those seeking  asylum. The organization rebranded to InReach to better communicate and  reflect the value of its free technology to a diverse LGBTQ+ user base.\n\nToday, InReach lists verified services for the diverse, intersectional LGBTQ+ community – including  asylum seekers, refugees and other immigrants, BIPOC communities, the  transgender and gender non-conforming (TGNC) community, youth and their  caregivers, and more LGBTQ+ communities.\n"
+    _template: twoColumn
+  - slides:
+      - backgroundImage: /home/lgbtqtransflag.jpg
+        slideTitle: Change the world!
+        slideContent: >-
+          Are you a lawyer, nonporift service provider or local community
+          member?
+        darken: true
+        animate: false
+        actionButton: |
+          <ActionButton text="Find Resource Referrals" link="/" />
+    _template: carousel
+  - titleImageGridHeader:
+      titleImageGridHeaderRich: |
+        Our Team,Board, and Advisors
+      titleTextColor: Ally Green
+    titleImageGridContent:
+      - titleImageGridContentRich: >
+          We are a proud trans-led nonprofit organization serving the trans and
+          wider LGBTQ+ community. Learn more about our staff, volunteers,
+          interns,  Board of Directors, Young Professionals Board and Advisory
+          Council  below.
+    _template: titleImageGrid
+  - header: ''
+    description: ''
     roles:
       - roleName: Staff
         roleDescription: ''
@@ -224,7 +280,6 @@ blocks:
         body: |
           <ActionButton actionText="Join" link="/" />
     _template: actions
-
   - _template: footer
 ---
 
