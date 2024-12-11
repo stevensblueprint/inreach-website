@@ -9,29 +9,32 @@ import {
 import { cn } from '../../../lib/utils'
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
+	const { heroBackgroundImage, heroHeaderText } = data
+
+	const backgroundStyle = {
+		backgroundImage: heroHeaderText?.darkenBackground
+			? `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${heroBackgroundImage?.src})`
+			: `url(${heroBackgroundImage?.src})`,
+	}
+
 	return (
-		<>
-			{data.heroBackgroundImage?.src && data.heroBackgroundImage?.alt && (
-				<Image
-					src={data.heroBackgroundImage.src}
-					alt={data.heroBackgroundImage.alt}
-					className='md:h-[480px] h-[300px]'
-				/>
-			)}
+		<div
+			className='relative flex items-center justify-center h-[300px] md:h-[480px] bg-cover bg-center'
+			style={backgroundStyle}
+		>
 			<div
 				className={cn(
-					'absolute prose top-1/2 transform -translate-y-1/2 px-6 md:prose-h1:text-6xl prose-h1:text-4xl max-w-none flex flex-col gap-4',
+					'prose px-4 md:prose-h1:text-6xl prose-h1:text-4xl prose-headings:my-6 prose-p:my-2 max-w-7xl flex flex-col gap-4',
 					{
-						'right-0': data.heroHeaderText?.position === 'Right',
-						'left-0': data.heroHeaderText?.position === 'Left',
-						'left-1/2 transform -translate-x-1/2 w-2/3 text-center':
-							data.heroHeaderText?.position === 'Middle',
+						'items-end w-full': heroHeaderText?.position === 'Right',
+						'items-start w-full': heroHeaderText?.position === 'Left',
+						'items-center text-center w-2/3': heroHeaderText?.position === 'Middle',
 					}
 				)}
 			>
-				<TinaMarkdown components={tinaMarkdownComponents} content={data.heroHeaderText?.text} />
+				<TinaMarkdown components={tinaMarkdownComponents} content={heroHeaderText?.text} />
 			</div>
-		</>
+		</div>
 	)
 }
 
@@ -68,6 +71,11 @@ export const heroTemplate: Template = {
 					isBody: true,
 					label: 'Header Text',
 					templates: tinaMarkdownComponentsRichTextTemplate,
+				},
+				{
+					name: 'darkenBackground',
+					type: 'boolean',
+					label: 'Darken Background',
 				},
 				{
 					name: 'position',
