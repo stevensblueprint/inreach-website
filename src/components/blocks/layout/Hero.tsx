@@ -93,6 +93,11 @@ export const heroTemplate: Template = {
 					templates: tinaMarkdownComponentsRichTextTemplate,
 				},
 				{
+					name: 'darkenBackground',
+					type: 'boolean',
+					label: 'Darken Background',
+				},
+				{
 					name: 'position',
 					type: 'string',
 					label: 'Position',
