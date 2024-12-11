@@ -10,6 +10,11 @@ import { titleImageGridTemplate } from '../src/components/blocks/layout/TitleIma
 import { headerTemplate } from '../src/components/blocks/layout/Header'
 import { twoColumnTemplate } from '../src/components/blocks/layout/TwoColumn'
 import { richTextTemplate } from '../src/components/blocks/layout/RichText'
+import { photoGalleryTemplate } from '../src/components/blocks/PhotoGallery'
+import { accordionTemplate } from '../src/components/blocks/AccordionBlock'
+import { heroTemplate } from '../src/components/blocks/layout/Hero'
+import { imageTextButtonTemplate } from '../src/components/blocks/ImageTextButton'
+import { textButtonTemplate } from '../src/components/blocks/TextButton'
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
 // Your hosting provider likely exposes this as an environment variable
@@ -88,6 +93,11 @@ export default defineConfig({
 							headerTemplate,
 							twoColumnTemplate,
 							richTextTemplate,
+							photoGalleryTemplate,
+							accordionTemplate,
+							heroTemplate,
+							imageTextButtonTemplate,
+							textButtonTemplate,
 						],
 					},
 				],
