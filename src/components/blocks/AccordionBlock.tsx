@@ -3,6 +3,11 @@ import type { Template } from 'tinacms'
 import { Accordion } from '@mantine/core'
 import { PageBlocksAccordionblock } from '~tina/__generated__/types'
 import { Icon as Iconify } from '@iconify/react'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import {
+	tinaMarkdownComponents,
+	tinaMarkdownComponentsRichTextTemplate,
+} from '../fields/TinaMarkdownComponents/TinaMarkdownComponents'
 
 export const AccordionBlock = ({ data }: { data: PageBlocksAccordionblock }) => {
 	const [activeIndexes, setActiveIndexes] = React.useState<number[]>([])
@@ -31,7 +36,11 @@ export const AccordionBlock = ({ data }: { data: PageBlocksAccordionblock }) => 
 								>
 									<p className='text-xl font-bold'>{item.accordionTitle}</p>
 								</Accordion.Control>
-								<Accordion.Panel>{item.accordionContent}</Accordion.Panel>
+								<Accordion.Panel>
+									<div className='prose prose-headings:my-6 prose-p:my-2'>
+										<TinaMarkdown components={tinaMarkdownComponents} content={item.accordionContent || ''} />
+									</div>
+								</Accordion.Panel>
 							</Accordion.Item>
 						) : null
 					})}
@@ -77,11 +86,9 @@ export const accordionTemplate: Template = {
 				},
 				{
 					name: 'accordionContent',
-					type: 'string',
+					type: 'rich-text',
 					label: 'Content',
-					ui: {
-						component: 'textarea',
-					},
+					templates: tinaMarkdownComponentsRichTextTemplate,
 				},
 			],
 		},
