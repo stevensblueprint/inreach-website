@@ -2,6 +2,8 @@ import { Components } from 'tinacms/dist/rich-text'
 import { textColorClasses } from '../ColorSelector/colors'
 import { cn } from '../../../lib/utils'
 import { ColorSelector } from '../ColorSelector/ColorSelector'
+import { Button } from '@mantine/core'
+import Link from 'next/link'
 import type { RichTextTemplate } from '@tinacms/schema-tools'
 
 // helper function to parse youtube video id from shared url
@@ -40,6 +42,19 @@ export const tinaMarkdownComponents: Components<any> = {
 			</span>
 		)
 	},
+	ActionButton: ({ text, link }: { text: string; link: string }) => {
+		return (
+			<Button
+				variant='filled'
+				className='bg-inreach-ally-green border-inreach-white text-white transition-colors hover:bg-inreach-white hover:border-inreach-ally-green hover:text-inreach-ally-green no-underline'
+				component={Link}
+				href={{ pathname: link }}
+				size='md'
+			>
+				{text}
+			</Button>
+		)
+	},
 }
 
 export const tinaMarkdownComponentsRichTextTemplate: RichTextTemplate[] = [
@@ -71,6 +86,23 @@ export const tinaMarkdownComponentsRichTextTemplate: RichTextTemplate[] = [
 				ui: {
 					component: ColorSelector,
 				},
+			},
+		],
+	},
+	{
+		name: 'ActionButton',
+		label: 'Action Button',
+		fields: [
+			{
+				type: 'string',
+				name: 'text',
+				label: 'Action Button Text',
+			},
+			{
+				type: 'string',
+				name: 'link',
+				label: 'Button Link',
+				required: true,
 			},
 		],
 	},
