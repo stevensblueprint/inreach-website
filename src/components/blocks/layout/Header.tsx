@@ -14,10 +14,106 @@ import { useDisclosure } from '@mantine/hooks'
 import { Icon as Iconify } from '@iconify/react'
 import ReactCountryFlag from 'react-country-flag'
 
+const DEFAULT_NAV_LINKS: Array<PageBlocksHeaderNavLinks> = [
+	{
+		__typename: 'PageBlocksHeaderNavLinks',
+		linkName: 'About',
+		linkUrls: [
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Mission',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Our Team',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Our Vetting Process',
+				pathURL: '/',
+			},
+		],
+	},
+	{
+		__typename: 'PageBlocksHeaderNavLinks',
+		linkName: 'News',
+		linkUrls: [
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'In the News',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Awards',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Our blog',
+				pathURL: '/',
+			},
+		],
+	},
+	{
+		__typename: 'PageBlocksHeaderNavLinks',
+		linkName: 'Get Help',
+		linkUrls: [
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Get Help For Myself',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Get Help For Client',
+				pathURL: '/',
+			},
+		],
+	},
+	{
+		__typename: 'PageBlocksHeaderNavLinks',
+		linkName: 'Take Action',
+		linkUrls: [
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Donate',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Mutiply Your Support',
+				pathURL: '/',
+			},
+		],
+	},
+	{
+		__typename: 'PageBlocksHeaderNavLinks',
+		linkName: 'Contact',
+		linkUrls: [
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Contact Us',
+				pathURL: '/',
+			},
+			{
+				__typename: 'PageBlocksHeaderNavLinksLinkUrls',
+				sectionUrl: 'Donor Dashboard',
+				pathURL: '/',
+			},
+		],
+	},
+]
+
 export const Header = ({ data }: { data: PageBlocksHeader }) => {
 	const [selectedLanguage, setSelectedLanguage] = useState(data.languages?.[0] || null)
-	const items = data.navLinks
-		? data.navLinks.map((item, i) => {
+	const navLinks = DEFAULT_NAV_LINKS.concat(
+		(data.navLinks || []).filter((link): link is PageBlocksHeaderNavLinks => link !== null)
+	)
+	const items = navLinks
+		? navLinks.map((item, i) => {
 				return (
 					<Menu key={item?.linkName} trigger='hover' withinPortal>
 						{item?.linkName && (
