@@ -56,7 +56,6 @@ export const TeamGalleryContainer = ({ data }: { data: PageBlocksTeamGallery }) 
 										key={block.roleName + 'Fragment' + z}
 										className='prose prose-stone prose-headings:mb-2 prose-p:mb-2 w-full max-w-none'
 									>
-										<h1 className='uppercase text-3xl font-bold'>{block.roleName}</h1>
 										<TinaMarkdown content={block.roleDescription} />
 									</div>
 								)
