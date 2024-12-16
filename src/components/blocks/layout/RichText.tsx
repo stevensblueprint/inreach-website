@@ -9,7 +9,7 @@ import {
 export const RichText = ({ data }: { data: PageBlocksRichText }) => {
 	const { richTextContent } = data
 	return (
-		<div className='max-w-[1360px] mx-auto p-10'>
+		<div className='max-w-[1360px] mx-auto p-10 bg-white'>
 			<div className='flex flex-col grow justify-center prose max-w-none prose-headings:my-6 prose-p:my-2 p'>
 				<TinaMarkdown components={tinaMarkdownComponents} content={richTextContent} />
 			</div>
