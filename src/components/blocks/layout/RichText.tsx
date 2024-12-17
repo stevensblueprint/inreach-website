@@ -11,7 +11,7 @@ export const RichText = ({ data }: { data: PageBlocksRichText }) => {
 	return (
 		<div
 			className={cn(
-				'prose px-4 md:prose-h1:text-6xl prose-h1:text-4xl prose-headings:my-6 prose-p:my-2 max-w-7xl flex flex-col gap-4',
+				'prose px-4 md:prose-h1:text-6xl prose-h1:text-4xl prose-headings:my-6 prose-p:my-2 max-w-7xl mx-auto flex flex-col gap-4',
 				{
 					'items-end w-full': data?.position === 'Right',
 					'items-start w-full': data?.position === 'Left',
