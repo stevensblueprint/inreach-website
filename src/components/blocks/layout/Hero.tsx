@@ -1,4 +1,3 @@
-import { Image } from '@mantine/core'
 import { Template } from 'tinacms'
 import { PageBlocksHero } from '~tina/__generated__/types'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
