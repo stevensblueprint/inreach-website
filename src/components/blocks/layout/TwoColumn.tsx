@@ -33,7 +33,7 @@ export const TwoColumn = ({ data }: { data: PageBlocksTwoColumn }) => {
 	const { heading, richTextLeft, richTextRight, verticalAlignment } = data
 
 	return (
-		<div className={`w-full flex flex-col justify-center items-center p-10`}>
+		<div className={`w-full flex flex-col justify-center items-center p-10 bg-white`}>
 			<div className='w-full max-w-7xl'>
 				{heading && <h1 className='text-2xl uppercase pb-10 font-bold'>{heading}</h1>}
 				<div className='w-full flex flex-col md:flex-row gap-10 justify-start'>
