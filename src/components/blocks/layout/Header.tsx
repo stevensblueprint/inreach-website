@@ -264,7 +264,7 @@ export const headerTemplate: Template = {
 			name: 'navLinks',
 			label: 'Links',
 			list: true,
-      description: 'Add links to the navbar (add one empty one for default navbar to show)',
+			description: 'Add links to the navbar (add one empty one for default navbar to show)',
 			type: 'object',
 			ui: {
 				itemProps: (item: PageBlocksHeaderNavLinks) => {
