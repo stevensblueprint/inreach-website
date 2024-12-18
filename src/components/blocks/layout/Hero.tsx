@@ -1,4 +1,3 @@
-import { Image } from '@mantine/core'
 import { Template } from 'tinacms'
 import { PageBlocksHero } from '~tina/__generated__/types'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
@@ -8,12 +7,25 @@ import {
 } from '../../../components/fields/TinaMarkdownComponents/TinaMarkdownComponents'
 import { cn } from '../../../lib/utils'
 
+interface HexToRgba {
+	(hex: string, alpha?: number): string
+}
+
+const hexToRgba: HexToRgba = (hex, alpha = 1) => {
+	const hexValue = hex.startsWith('#') ? hex.slice(1) : hex
+	const r = parseInt(hexValue.slice(0, 2), 16)
+	const g = parseInt(hexValue.slice(2, 4), 16)
+	const b = parseInt(hexValue.slice(4, 6), 16)
+
+	return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
+
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
 	const { heroBackgroundImage, heroHeaderText } = data
 
 	const backgroundStyle = {
-		backgroundImage: heroHeaderText?.darkenBackground
-			? `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(${heroBackgroundImage?.src})`
+		backgroundImage: heroBackgroundImage?.colorFilter
+			? `linear-gradient(${hexToRgba(heroBackgroundImage.colorFilter, 0.65)}, ${hexToRgba(heroBackgroundImage.colorFilter, 0.65)}), url(${heroBackgroundImage?.src})`
 			: `url(${heroBackgroundImage?.src})`,
 	}
 
@@ -58,6 +70,14 @@ export const heroTemplate: Template = {
 					type: 'string',
 					label: 'Alt Text',
 				},
+				{
+					name: 'colorFilter',
+					type: 'string',
+					label: 'Image color filter',
+					ui: {
+						component: 'color',
+					},
+				},
 			],
 		},
 		{
@@ -71,11 +91,6 @@ export const heroTemplate: Template = {
 					isBody: true,
 					label: 'Header Text',
 					templates: tinaMarkdownComponentsRichTextTemplate,
-				},
-				{
-					name: 'darkenBackground',
-					type: 'boolean',
-					label: 'Darken Background',
 				},
 				{
 					name: 'position',
